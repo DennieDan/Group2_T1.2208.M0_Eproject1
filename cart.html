@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/CSS/cart.css">
+<link rel="stylesheet" href="CSS/cart.css">
 <div class="address-container">
     <a href="#/"><i class="fa-solid fa-house"></i></a>
     <div class="address">
@@ -55,7 +55,7 @@
 
             <tbody>
                 <tr ng-repeat="cart in carts | orderBy:p_id">
-                    <td><img src="../Image/{{cart.p_img}}" alt="walnut" height="100%"></td>
+                    <td><img src="Image/{{cart.p_img}}" alt="walnut" height="100%"></td>
                     <td><div>{{cart.p_name}}</div></td>
                     <td>{{cart.p_price | vndFilter}}</td>
                     <td>
@@ -73,7 +73,7 @@
                     <td>{{cart.p_qty * cart.p_price | vndFilter}}</td>
                 </tr>
                 <!-- <tr>
-                    <td><img src="../Image/walnut.jpg" alt="walnut" height="100%"></td>
+                    <td><img src="Image/walnut.jpg" alt="walnut" height="100%"></td>
                     <td><div>Watermelon Seeds 400gr</div></td>
                     <td>$19.99</td>
                     <td>
