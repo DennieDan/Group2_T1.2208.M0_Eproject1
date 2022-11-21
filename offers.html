@@ -1,0 +1,180 @@
+<link rel="stylesheet" href="/CSS/offers.css">
+
+<div class="address-container">
+    <a href="#/"><i class="fa-solid fa-house"></i></a>
+    <div class="address">
+        <a href="#/"> Home </a>/
+        <a href="#!offers"> Offers </a>
+    </div>
+</div>
+
+<div class="page-first-row">
+    <div class="page-title">
+        Offers
+        <hr>
+    </div>
+    <div class="sort-container">
+        <div style="width: 110%;">Sort By</div>
+        <div>
+            <select ng-model="expression">
+                <option selected value=" ">--Select--</option>
+                <option value="due">Due date: Near to Far</option>
+                <option value="-due">Due date: Far to Near</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<section class="offer-body">
+    <div class="container my-5">
+        <div class="row">
+            <div class="offer-customer col-sm-3">
+                <div class="offer-customer-container">
+                    <div id="offer-customer-title">
+                        Customer Details
+                        <hr>
+                    </div>
+                    <div id="offer-customer-detail">
+                        <div id="name">Nguyen Khanh Du</div>
+                        <table style="box-sizing: border-box; width: 100%;" id="offer-customer-table">
+                            <tr>
+                                <td class="customer-detail-title">Email address</td>
+                                <td class="customer-detail-content">group2.khanhdu@gmail.com</td>
+                            </tr>
+                            <tr>
+                                <td class="customer-detail-title">Phone</td>
+                                <td class="customer-detail-content">0901 234 333</td>
+                            </tr>
+                            <tr>
+                                <td class="customer-detail-title">Address</td>
+                                <td class="customer-detail-content">224 Bau Cat, Ward 11, Tan Binh District, HCMC</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-8">
+                <table id="offer-table" width="100%">
+                    <thead>
+                        <tr>
+                            <td>No.</td>
+                            <td>Discount content</td>
+                            <td>CODE</td>
+                            <td>Use</td>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr ng-repeat="offer in offers | orderBy:expression">
+                            <td>{{$index+1}}</td>
+                            <td>
+                                <div class="discount-title">{{offer.content}}</div>
+                                <div class="discount-due">Until {{offer.due | date: 'longDate'}}</div>
+                            </td>
+                            <td>{{offer.code}}</td>
+                            <td><button type="button" class="btn btn-primary w-75">Copy</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- !bottom-product-slider -->
+<section class="product">
+    <div class="row">
+        <div class="col-sm-12 m-auto pt-5 text-center">
+            <h1 style="font-size: 2em;">Featured Products</h1><hr class="product-title">
+        </div>
+    </div>
+    <button class="pre-btn" ng-click="leftScroll()"><i class="fa-solid fa-angle-left"></i></button>
+    <button class="nxt-btn" ng-click="rightScroll()"><i class="fa-solid fa-angle-right"></i></button>
+    <div class="product-container">
+        <div class="product-card">
+            <div class="product-image">
+                <span class="discount-tag">50% Off</span>
+                <img src="../Image/seed1.jpg" alt="">
+                <button class="card-btn">Add to Wishlist</button>
+            </div>
+            <div class="product-info">
+                <div class="product-short-description">A short line about the product</div>
+                <span class="current-price">$20</span>
+                <span class="actual-price">$40</span>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">
+                <span class="discount-tag">50% Off</span>
+                <img src="../Image/seeds.png" alt="">
+                <button class="card-btn">Add to Wishlist</button>
+            </div>
+            <div class="product-info">
+                <div class="product-short-description">A short line about the product</div>
+                <span class="current-price">$20</span>
+                <span class="actual-price">$40</span>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">
+                <span class="discount-tag">50% Off</span>
+                <img src="../Image/nuts.png" alt="">
+                <button class="card-btn">Add to Wishlist</button>
+            </div>
+            <div class="product-info">
+                <div class="product-short-description">A short line about the product</div>
+                <span class="current-price">$20</span>
+                <span class="actual-price">$40</span>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">
+                <span class="discount-tag">50% Off</span>
+                <img src="../Image/walnut.jpg" alt="">
+                <button class="card-btn">Add to Wishlist</button>
+            </div>
+            <div class="product-info">
+                <div class="product-short-description">A short line about the product</div>
+                <span class="current-price">$20</span>
+                <span class="actual-price">$40</span>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">
+                <span class="discount-tag">50% Off</span>
+                <img src="../Image/dryfruits.png" alt="">
+                <button class="card-btn">Add to Wishlist</button>
+            </div>
+            <div class="product-info">
+                <div class="product-short-description">A short line about the product</div>
+                <span class="current-price">$20</span>
+                <span class="actual-price">$40</span>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">
+                <span class="discount-tag">50% Off</span>
+                <img src="../Image/traicaysay.jpg" alt="">
+                <button class="card-btn">Add to Wishlist</button>
+            </div>
+            <div class="product-info">
+                <div class="product-short-description">A short line about the product</div>
+                <span class="current-price">$20</span>
+                <span class="actual-price">$40</span>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="product-image">
+                <span class="discount-tag">50% Off</span>
+                <img src="../Image/traicaykho.jpg" alt="">
+                <button class="card-btn">Add to Wishlist</button>
+            </div>
+            <div class="product-info">
+                <div class="product-short-description">A short line about the product</div>
+                <span class="current-price">$20</span>
+                <span class="actual-price">$40</span>
+            </div>
+        </div>
+    </div>
+</section>

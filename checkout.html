@@ -1,0 +1,303 @@
+<link rel="stylesheet" href="/CSS/checkout.css">
+
+
+<div class="address-container">
+    <a href="#/"><i class="fa-solid fa-house"></i></a>
+    <div class="address">
+        <a href="#/"> Home </a>/
+        <a href="#!cart"> Shopping Cart </a>/
+        <a href="#!checkout"> Checkout </a>
+    </div>
+</div>
+
+<!-- !bootstrap alert -->
+<div class="alert alert-danger alert-dismissible fade show" ng-show="shippingAlert">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>Alert!</strong> You must choose a Shipping method.
+</div>
+<div class="alert alert-danger alert-dismissible fade show" ng-show="paymentAlert">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>Alert!</strong> You must choose a Payment method.
+</div>
+
+<!-- !Title Row -->
+<div class="page-first-row">
+    <div class="page-title">
+        Quick Checkout
+        <hr>
+    </div>
+</div>
+
+<section class="checkout-body">
+    <div class="container my-3">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="left col-sm-11">
+                        <!-- !Deliver -->
+                        <div class="basic-container">
+                            <div class="basic-title">
+                                Deliver to
+                                <hr>
+                            </div>
+                            <table id="address1-container">
+                                <tr>
+                                    <td class="radio-col"><input type="radio" name="address-choice" checked></td>
+                                    <td class="deliver-address">
+                                        <div class="name-phone">Nguyen Khanh Du | 0901 234 333</div>
+                                        <div class="address-detail">590 Cach Mang Thang 8, Ward 11, District 3, HCMC;lksadjhf;liadshjfa;lj</div>
+                                    </td>
+                                </tr>
+                                <tr ng-show="showAddress2">
+                                    <td class="radio-col"><input type="radio" name="address-choice" ng-checked="addCheck"></td>
+                                    <td class="deliver-address">
+                                        <div class="name-phone">{{addName}} | {{addPhone|phoneFilter}}</div>
+                                        <div class="address-detail">{{addAddress}}</div>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="add-address-container" ng-show="allowUpdate">
+                                <div class="show-more" ng-click="hideAndShow = !hideAndShow">
+                                    <div class="show-text">Ship to another address</div>
+                                    <div class="more-less" ng-hide="hideAndShow"><i class="fa-solid fa-chevron-down"></i>More</div>
+                                    <div class="more-less" ng-show="hideAndShow"><i class="fa-solid fa-chevron-up"></i>Less</div>
+                                </div>
+                                <form name="addForm" id="add-address-form" ng-show="hideAndShow">
+                                    <table class="add-address-section">
+                                        <tr>
+                                            <td>
+                                                <div class="add-address-title">Name <span style="color: red;">*</span></div>
+                                                <div><input type="text" class="form-control" name="addName" ng-model="addName" pattern="[a-zA-Z]{3,}" required></div>
+                                                <div class="add-address-error" ng-show="addForm.addName.$error.required && addForm.addName.$dirty">Name is required</div>
+                                                <div class="add-address-error" ng-show="addForm.addName.$error.pattern && addForm.addName.$dirty">Name must include at least 3 letters</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="add-address-title">Telephone <span style="color: red;">*</span></div>
+                                                <div><input type="text" class="form-control" name="addPhone" ng-model="addPhone" pattern="[0-9]{10}" required></div>
+                                                <div class="add-address-error" ng-show="addForm.addPhone.$error.required && addForm.addPhone.$dirty">Phone number is required</div>
+                                                <div class="add-address-error" ng-show="addForm.addPhone.$error.pattern && addForm.addPhone.$dirty">Invalid phone number</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="add-address-title">Address <span style="color: red;">*</span></div>
+                                                <div><input type="text" class="form-control" name="addAddress" ng-model="addAddress" required></div>
+                                                <div class="add-address-error" ng-show="addForm.addAddress.$error.required && addForm.addAddress.$dirty">New address is required</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="add-address-title">State <span style="color: red;">*</span></div>
+                                                <div>
+                                                    <select id="state" name="state" ng-model="state">
+                                                        <option value="">--Please Select--</option>
+                                                        <option ng-repeat="city in cities" ng-value="{{city.state_code}}">{{city.state_name}}</option>
+                                                    </select>
+                                                </div>
+                                                <div class="add-address-error" ng-show="addForm.addAddress.$error.required && addForm.addAddress.$dirty">State is required</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <!-- <input type="submit" value="Update" class="update-btn" ng-click="showAddress2 = true; allowUpdate = false"> -->
+                                                <input type="submit" value="Update" class="update-btn" ng-click="showAddress2 = true; addCheck = true; allowUpdate = false" ng-disabled="addForm.addName.$error.required ||
+                                                                                                                                                                        addForm.addName.$error.pattern ||
+                                                                                                                                                                        addForm.addPhone.$error.required ||
+                                                                                                                                                                        addForm.addPhone.$error.pattern ||
+                                                                                                                                                                        addForm.addAddress.$error.required">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <!-- !Order -->
+                        <div class="basic-container mt-5">
+                            <div class="basic-title">
+                                <div id="order-title">
+                                    <div>
+                                        Order
+                                        <div id="item-num">{{totalItem()}}</div>
+                                    </div>
+                                    <a href="#!cart"><div class="show-text" style="padding-top: 0;">Change</div></a>
+                                </div>
+                                <hr>
+                            </div>
+                            <table id="order-table">
+                                <tr ng-repeat="cart in carts">
+                                    <td><img src="../Image/{{cart.p_img}}" alt="seed1" class="order-table-img"></td>
+                                    <td class="order-table-product">{{cart.p_name}}</td>
+                                    <td class="order-table-quantity">x{{cart.p_qty}}</td>
+                                    <td class="order-table-price">{{cart.p_qty * cart.p_price | vndFilter}}</td>
+                                </tr>
+                            </table>
+                            <hr>
+                            <table id="order-total-table">
+                                <tr>
+                                    <td class="order-total-table-title">Sub-Total: </td>
+                                    <td class="order-total-table-content">{{getSubTotal() | vndFilter}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="order-total-table-title">Shipping: </td>
+                                    <td class="order-total-table-content">{{shipCost | vndFilter}}</td>
+                                </tr>
+                                <tr id="order-total">
+                                    <td class="order-total-table-title">Total: </td>
+                                    <td class="order-total-table-content" id="order-total-table-total">{{getTotal() | vndFilter}}</td>
+                                </tr>
+                            </table>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-sm-8">
+                <!-- !Shipping-Payment Method -->
+                <div class="basic-container row">
+                    <div class="col-sm-6 px-0">
+                        <div class="basic-title">
+                            Shipping Method {{shipping}} | {{checkshipping}}
+                            <hr>
+                        </div>
+                        <table id="method-table">
+                            <tr>
+                                <td class="radio-col"><input type="radio" id="checkout-ship1" name="shipping" ng-model="shipping" value="ship-1"></td>
+                                <td class="deliver-address">Free shipping (in {{shipDay}} days) - 0 VND</td>
+                            </tr>
+                            <tr>
+                                <td class="radio-col"><input type="radio" id="checkout-ship2" name="shipping" ng-model="shipping" value="ship-2"></td>
+                                <td class="deliver-address">High Speed delivery (in 48 hours) - {{shipFee | vndFilter}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="payment-col col-sm-6">
+                        <div class="basic-title">
+                            Payment Method
+                            <hr>
+                        </div>
+                        <table id="method-table">
+                            <tr>
+                                <td class="radio-col"><input type="radio" name="payment" ng-model="payment" value="cod" ng-click="showCredit = false"></td>
+                                <td class="deliver-address">Cash on Delivery (COD)</td>
+                            </tr>
+                            <tr>
+                                <td class="radio-col"><input type="radio" name="payment" ng-model="payment" value="card" ng-click="showCredit = true"></td>
+                                <td class="deliver-address">
+                                    International Credit/Debit Card
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <img src="../Image/visa.png" alt="visa" width="100%">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <img src="../Image/mastercard.png" alt="mastercard" width="100%">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <img src="../Image/JCB.webp" alt="jcb" width="100%">
+                                        </div>
+                                    </div>
+                                    <form name="cardForm">
+                                        <table id="credit-table" ng-show="showCredit">
+                                            <tr>
+                                                <td>Card number</td>
+                                                <td><input type="text" placeholder="Ex: 4123 4789 8901 2345" name="cardNumber" ng-model="cardNumber" pattern="\d{4}\s\d{4}\s\d{4}\s\d{4}" required></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Card holder</td>
+                                                <td><input type="text" placeholder="Ex: NGUYEN KHANH DU" name="cardHolder" ng-model="cardHolder" pattern="[A-Z]+\b+" required></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Valid dates</td>
+                                                <td><input type="text" placeholder="MM/YY" style="width: 40%;" name="cardEx" ng-model="cardEx" pattern="^(0[1-9]|1[0-2])\/?([0-9]{2})$" required></td>
+                                            </tr>
+                                            <tr>
+                                                <td>PIN</td>
+                                                <td><input type="text" placeholder="Ex: 123" style="width: 40%;" name="cardPin" ng-model="cardPin" pattern="\d{3}" required></td>
+                                            </tr>
+                                        </table>
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="new-red-alert" ng-show="cardShow = showCredit && (cardForm.cardNumber.$error.required || cardForm.cardNumber.$error.pattern 
+                                                                        || cardForm.cardHolder.$error.required || cardForm.cardHolder.$error.pattern 
+                                                                        || cardForm.cardEx.$error.required || cardForm.cardEx.$error.pattern 
+                                                                        || cardForm.cardPin.$error.required || cardForm.cardPin.$error.pattern)">
+                        <div class="row px-0">
+                            <div class="new-tick-cross col-sm-1"><i class="fa-solid fa-circle-exclamation"></i></div>
+                            <div class="new-message col-sm-10"><strong>Warning: </strong>All fields must be valid.</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- !Coupon -->
+                <div class="basic-container row mt-5">
+                    <div class="basic-title">
+                        Coupon/Voucher
+                        <hr>
+                    </div>
+                    <div class="col-sm-5" id="coupon-enter">Enter your coupon here</div>
+                    <div class="col-sm-5"><input type="text" id="coupon-text" form="coupon-form"></div>
+                    <div class="col-sm-2 mb-3"><input type="submit" form="coupon-form" value="Submit" class="coupon-btn" ng-click="showNewAlert = !showNewAlert"></div>
+
+                    <div class="new-green-alert" ng-show="showNewAlert">
+                        <div class="row px-0">
+                            <div class="new-tick-cross col-sm-1"><i class="fa-solid fa-circle-check"></i></div>
+                            <div class="new-message col-sm-10">Success: Your shipping estimate has been applied!</div>
+                            <div class="new-xmark col-sm-1"><i class="fa-solid fa-xmark"></i></div>
+                        </div>
+                    </div>
+                    <div class="new-red-alert" ng-hide="showNewAlert">
+                        <div class="row px-0">
+                            <div class="new-tick-cross col-sm-1"><i class="fa-solid fa-circle-xmark"></i></div>
+                            <div class="new-message col-sm-10">Warning: Invalid coupon code!</div>
+                            <div class="new-xmark col-sm-1"><i class="fa-solid fa-xmark"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- <table id="new-alert-table">
+                        <tr>
+                            <td class="new-tick-cross"><i class="fa-solid fa-circle-check"></i></td>
+                            <td class="new-message">Success: Your shipping estimate has been applied!</td>
+                            <td class="new-xmark"><i class="fa-solid fa-xmark"></i></td>
+                        </tr>
+                    </table> -->
+                </div>
+
+                <!-- !Confirm Order -->
+                <div class="basic-container row mt-5">
+                    <div class="basic-title">
+                        Confirm Your Order
+                        <hr>
+                    </div>
+                    <label for="deliver-note" id="deliver-note-title">Deliver Note</label>
+                    <textarea name="deliver-note" id="deliver-note" cols="5" rows="5"></textarea>
+                    <div id="disclaimer-message">
+                        <input type="checkbox" ng-model="confirmAbled" id="disclaimerCheck">
+                        I completely agree to MaruDryFruit <span style="text-decoration: underline; color:#0879E1; cursor: pointer;" ng-click="popDisclaimer()">Delivery Disclaimer</span>.
+                    </div>
+
+                    <div class="new-yellow-alert" ng-show="disclaimerAlert">
+                        <div class="row px-0">
+                            <div class="new-tick-cross col-sm-1"><i class="fa-solid fa-circle-exclamation"></i></div>
+                            <div class="new-message col-sm-10">Please agree to our Delivery Disclaimer</div>
+                            <div class="new-xmark col-sm-1"><i class="fa-solid fa-xmark" ng-click="disclaimerAlert = false"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="get-quote-area">
+                        <!-- <button class="get-quote-btn" ng-disabled="!confirmAbled || shipping == undefined || payment == undefined" ng-click="confirmFinish()">
+                            Confirm Order
+                        </button> -->
+                        <button class="get-quote-btn" ng-click="confirmFinish()">
+                            Confirm Order
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

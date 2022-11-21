@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaruDryFruit | Nutritious Fruits and Nuts</title>
+    <link rel="icon" type="image/x-icon" href="../Image/grape_bigger.png"> <!--icon tren tab bar-->
+    <link rel="stylesheet" href="CSS/css_1.css"> <!--CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"> <!--BOOTSTRAP 5-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script> <!--BOOTSTRAP 5-->
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!--Google Fonts-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer"/> <!--font awesome/icon-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"> <!--BOOTSTRAP ICON - fb twitter-->
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+    <!-- Semantic UI theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+    <!-- Bootstrap theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+    
+</head>
+<body ng-app="myProject">
+    <header>
+        <div class="offer-container">
+            <div class="discount-name">Use code: HAPPYMon & <span class="discount-value"> GET 30% OFF</span></div>
+        </div>
+        <div class="main-header-container">
+            <div class="logo-container">
+                <a href="#/">
+                    <img src="../Image/logo.png" alt="logo" id="logo" height="55px" width="auto">
+                    <div id="logo-name"><span style="font-weight: 700">MARU</span> Dry Fruits</div>
+                </a>
+            </div>
+            <form class="d-flex">
+                <input class="px-2 search" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn0" type="submit"><i class="fa-solid fa-magnifying-glass" id="search"></i></button>
+            </form>
+            <div class="icon">
+                <div class="heart">
+                    <a href="#!wishlist"><i class="fa-solid fa-heart" id="heart"></i></a>
+                </div>
+                <div class="cart">
+                    <a href="#!cart"><i class="fa-solid fa-basket-shopping" id="cart"></i></a>
+                </div>
+                <div class="user">
+                    <a href="#!signin"><i class="fa-solid fa-user" id="user"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <ul class="nav-links" id="nav-bar">
+            <li><a href="#/">HOME</a></li>
+            <li><a href="#!products">PRODUCTS<i class="fa-solid fa-chevron-down"></i></a></li>
+            <li><a href="#!offers">OFFERS</a></li>
+            <li><a href="#!about">ABOUT</a></li>
+            <li><a href="#!contact">CONTACT</a></li>
+        </ul>
+    </nav>
+    <div ng-view></div>
+        <!--!footer -->
+  <footer>
+    <div class="navbar">
+        <div class="logo-container">
+            <a href="#/">
+                <img src="../Image/logo.png" alt="logo" id="logo" height="55px" width="auto">
+                <div id="logo-name2"><span style="font-weight: 700">MARU</span> Dry Fruits</div>
+            </a>
+        </div>
+        <div class="nav-right">
+            <div class="sub-scri">
+                <p>Subscribe to Newsletter</p>
+                <input class="px-2 search" type="text" placeholder="Email" aria-label="Email">
+                <button class="btn1" type="submit"><i class="fa-solid fa-arrow-right" id="email"></i></button>
+            </div>
+        </div>
+        <section class="fot-dcm">
+            <div class="container">
+                <div class="row">
+                  <div class="col-xl-2 col-lg-4 col-md-6">
+                    <div class="about">
+                      <h4>About Us</h4>
+                        <a href="#!about"> History</a>
+                        <div href="#" ng-click="popDisclaimer()"> Disclaimer</div>
+                    </div>
+                  </div>
+                  <div class="col-xl-2  col-lg-2 col-md-6">
+                    <div class="">
+                      <h4>Contact</h4>
+                      <ul class="list-unstyled">
+                        <li>
+                          <a href="#" class="text-decoration-none">Contact Us</a>
+                        </li>
+                        <div class="fb">
+                            <ul class="d-flex gap-1 list-unstyled">
+                              <li><a href="https://www.facebook.com/"><i class="bi bi-facebook" style="font-size: 2rem;"></i></a></li>
+                              <li><a href="#"><i class="bi bi-twitter" style="font-size: 2rem;"></i></a></li>
+                              <li><a href="#"><i class="bi bi-instagram" style="font-size: 2rem;"></i></a></li>
+                            </ul>
+                        </div>
+                        
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 col-lg-3 col-md-6">
+                    <div>
+                      <h4>Head Office</h4>
+                      <ul class="list-unstyled">
+                        <li>
+                          <a href="#" class="text-decoration-none"><i class="fa-solid fa-location-dot"></i> 590 Cach mang thang 8,Ward 11,Distric 3,Ho Chi Minh City</a>
+                        </li>
+                        <li>
+                          <a href="#" style="text-decoration-line: underline;"><i class="fa-regular fa-envelope"></i> support@marudryfruit.com.vn</a>
+                        </li>
+                        <li>
+                          <a href="tel:(+84)973406053" class="text-decoration-none"><i class="fa-solid fa-phone"></i> (84.28) 3863 3594 - (84.28) 3863 4270</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+<div class="col-xl-3 col-lg-3 col-md-6">
+                    <div>
+                      <h4>Hanoi Branch</h4>
+                      <ul class="list-unstyled">
+                        <li>
+                            <a href="#" class="text-decoration-none"><i class="fa-solid fa-location-dot"></i> 56/2 Chua Lang, Hoan Kiem District, Ha Noi</a>
+                          </li>
+                          <li>
+                            <a href="#" style="text-decoration-line: underline;"><i class="fa-regular fa-envelope"></i> support@marudryfruit.com.vn</a>
+                          </li>
+                          <li>
+                            <a href="tel:(+84)973406053" class="text-decoration-none"><i class="fa-solid fa-phone"></i> (84.28) 3863 3594 - (84.28) 3863 4270</a>
+                          </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+            <div class="footer">Copyright T1.2208.M0-Group 2 &copy; MaruDryFruit. All rights reserved</div>
+
+        </section>
+    </div>
+</footer>
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-route.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script> <!--jQuery-->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script> <!-- AlertifyJS-->
+    <script src="JS/script.js"></script>
+
+</body>
+</html>

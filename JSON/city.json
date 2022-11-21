@@ -1,0 +1,256 @@
+{
+    "cityList":[
+        {
+            "state_code": "1163",
+            "state_name": "Bắc Giang"
+        },
+        {
+            "state_code": "1262",
+            "state_name": "Bắc Kạn"
+        },
+        {
+            "state_code": "1313",
+            "state_name": "Cao Bằng"
+        },
+        {
+            "state_code": "1346",
+            "state_name": "Hà Giang"
+        },
+        {
+            "state_code": "1226",
+            "state_name": "Lạng Sơn"
+        },
+        {
+            "state_code": "1175",
+            "state_name": "Phú Thọ"
+        },
+        {
+            "state_code": "1127",
+            "state_name": "Quảng Ninh"
+        },
+        {
+            "state_code": "1201",
+            "state_name": "Thái Nguyên"
+        },
+        {
+            "state_code": "1232",
+            "state_name": "Tuyên Quang"
+        },
+        {
+            "state_code": "1327",
+            "state_name": "Lào Cai"
+        },
+        {
+            "state_code": "1226",
+            "state_name": "Yên Bái"
+        },
+        {
+            "state_code": "1236",
+            "state_name": "Điện Biên"
+        },
+        {
+            "state_code": "1120",
+            "state_name": "Hòa Bình"
+        },
+        {
+            "state_code": "1326",
+            "state_name": "Lai Châu"
+        },
+        {
+            "state_code": "1203",
+            "state_name": "Sơn La"
+        },
+        {
+            "state_code": "1154",
+            "state_name": "Bắc Ninh"
+        },
+        {
+            "state_code": "1084",
+            "state_name": "Hà Nam"
+        },
+        {
+            "state_code": "1125",
+            "state_name": "Hải Dương"
+        },
+        {
+            "state_code": "1094",
+            "state_name": "Hưng Yên"
+        },
+        {
+            "state_code": "1070",
+            "state_name": "Nam Định"
+        },
+        {
+            "state_code": "1051",
+            "state_name": "Ninh Bình"
+        },
+        {
+            "state_code": "1071",
+            "state_name": "Thái Bình"
+        },
+        {
+            "state_code": "1171",
+            "state_name": "Vĩnh Phúc"
+        },
+        {
+            "state_code": "1616",
+            "state_name": "Hà Nội"
+        },
+        {
+            "state_code": "1117",
+            "state_name": "Hải Phòng"
+        },
+        {
+            "state_code": "840",
+            "state_name": "Hà Tĩnh"
+        },
+        {
+            "state_code": "879",
+            "state_name": "Nghệ An"
+        },
+        {
+            "state_code": "739",
+            "state_name": "Quảng Bình"
+        },
+        {
+            "state_code": "668",
+            "state_name": "Quảng Trị"
+        },
+        {
+            "state_code": "1002",
+            "state_name": "Thanh Hóa"
+        },
+        {
+            "state_code": "636",
+            "state_name": "Thừa Thiên–Huế"
+        },
+        {
+            "state_code": "256",
+            "state_name": "Đắk Lắk"
+        },
+        {
+            "state_code": "250",
+            "state_name": "Đắk Nông"
+        },
+        {
+            "state_code": "382",
+            "state_name": "Gia Lai"
+        },
+        {
+            "state_code": "420",
+            "state_name": "Kon Tum"
+        },
+        {
+            "state_code": "234",
+            "state_name": "Lâm Đồng"
+        },
+        {
+            "state_code": "433",
+            "state_name": "Bình Định"
+        },
+        {
+            "state_code": "161",
+            "state_name": "Bình Thuận"
+        },
+        {
+            "state_code": "321",
+            "state_name": "Khánh Hòa"
+        },
+        {
+            "state_code": "270",
+            "state_name": "Ninh Thuận"
+        },
+        {
+            "state_code": "387",
+            "state_name": "Phú Yên"
+        },
+        {
+            "state_code": "565",
+            "state_name": "Quảng Nam"
+        },
+        {
+            "state_code": "532",
+            "state_name": "Quảng Ngãi"
+        },
+        {
+            "state_code": "608",
+            "state_name": "Đà Nẵng"
+        },
+        {
+            "state_code": "105",
+            "state_name": "Bà Rịa–Vũng Tàu"
+        },
+        {
+            "state_code": "18",
+            "state_name": "Bình Dương"
+        },
+        {
+            "state_code": "84",
+            "state_name": "Bình Phước"
+        },
+        {
+            "state_code": "93",
+            "state_name": "Đồng Nai"
+        },
+        {
+            "state_code": "79",
+            "state_name": "Tây Ninh"
+        },
+        {
+            "state_code": "0",
+            "state_name": "Hồ Chí Minh"
+        },
+        {
+            "state_code": "139",
+            "state_name": "An Giang"
+        },
+        {
+            "state_code": "197",
+            "state_name": "Bạc Liêu"
+        },
+        {
+            "state_code": "70",
+            "state_name": "Bến Tre"
+        },
+        {
+            "state_code": "244",
+            "state_name": "Cà Mau"
+        },
+        {
+            "state_code": "116",
+            "state_name": "Đồng Tháp"
+        },
+        {
+            "state_code": "172",
+            "state_name": "Hậu Giang"
+        },
+        {
+            "state_code": "192",
+            "state_name": "Kiên Giang"
+        },
+        {
+            "state_code": "40",
+            "state_name": "Long An"
+        },
+        {
+            "state_code": "154",
+            "state_name": "Sóc Trăng"
+        },
+        {
+            "state_code": "59",
+            "state_name": "Tiền Giang"
+        },
+        {
+            "state_code": "102",
+            "state_name": "Trà Vinh"
+        },
+        {
+            "state_code": "96",
+            "state_name": "Vĩnh Long"
+        },
+        {
+            "state_code": "127",
+            "state_name": "Cần Thơ"
+        }
+    ]
+}

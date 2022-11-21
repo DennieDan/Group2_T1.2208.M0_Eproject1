@@ -1,0 +1,9 @@
+{
+    "offersList":[
+        {"content":"BUY 2 GET 1 on Monday", "due":"2022-12-01", "code":"HappyMONDAY"},
+        {"content":"Get $20 Cash back on New Sign up", "due":"2023-01-01", "code":"NiceBEGIN"},
+        {"content":"20% OFF for AT LEAST 5 ITEMS Cart", "due":"2022-11-30", "code":"20ON5"},
+        {"content":"40% OFF for all NEW ARRIVALS", "due":"2022-12-15", "code":"40NEW"},
+        {"content":"Free ship bill with 2 COMBO PACKS", "due":"2023-01-01", "code":"lovelyCOMBO"}
+    ]
+}

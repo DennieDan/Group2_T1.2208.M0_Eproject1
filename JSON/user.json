@@ -1,0 +1,10 @@
+{
+    "userList":[
+        {"name":"Nguyen Khanh Du", "email":"khanhdunguyen231@yahoo.com", "pass":"000Khanhme", "telephone":"0342118587", "address":"532 Hoang Van Thu, Tan Binh District, Ward 11, HCMC", "state_code":"0"},
+        {"name":"Dinh Duy Linh Dan", "email":"ddld204@gmail.com", "pass":"111DanHaha23", "telephone":"0919223276", "address":"12/2 Nguyen Van Cu, District 5, Ward 4, HCMC", "state_code":"0"},
+        {"name":"Pham Thi Lanh", "email":"lanhpt@gmail.com.vn", "pass":"222lanhteacher", "telephone":"0913732233", "address":"222A Huynh Van Banh, Phu Nhuan District, Ward 3, HCMC", "state_code":"0"},
+        {"name":"Tran Van Phat", "email":"phattranvan202@gmail.com", "pass":"333PhatTran111", "telephone":"0322124333", "address":"Chung cu Garden View 58 Nguyen Huu Tho, District 7, Ward 2, HCMC", "state_code":"0"},
+        {"name":"Dong Dai Duong", "email":"duongocean123@yahoo.com", "pass":"444DuongPro", "telephone":"0872443124", "address":"539/12E Tran Van Dang, District 3, Ward 9, HCMC", "state_code":"0"},
+        {"name":"Khuu Nguyen Lan Anh", "email":"anla.khuu23@gmail.com", "pass":"555AnlaKhuu", "telephone":"0915227899", "address":"32 Nam Ky Khoi Nghia, Tan Phu District, Ward 2, HCMC", "state_code":"0"}
+    ]
+}

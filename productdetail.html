@@ -1,0 +1,113 @@
+<link rel="stylesheet" href="/CSS/detail.css">
+<link rel="stylesheet" href="/CSS/css_1.css">
+<div class="address-container">
+    <a href="#/"><i class="fa-solid fa-house"></i></a>
+    <div class="address">
+        <a href="#/"> Home </a>/
+        <a href="#!products"> Product </a>/
+        <a href="#!productdetail">Product detail</a>
+    </div>
+</div>
+<div ng-controller="detailController" ></div>
+<div class="detail">
+    <div class="nadetail">
+        <div class="bigimg">
+            <img src="../Image/{{selectProduct.img}}" alt="">
+        </div>
+        <div class="detail">
+            <table>
+                <tr>
+                    <div class="product-name">{{selectProduct.name}}</div>
+                </tr>
+                <tr>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star-half-stroke"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                </tr>
+                <tr><br>
+                    <div class="price">
+                        <div class="price-after">{{selectProduct.price | vndFilter}}</div>
+                        <div class="price-before">$21.95</div>
+                        <div class="price-discount">9% OFF</div>
+                </tr><br>
+                <button class="add" ng-click="addToCart(selectProduct)">Add to cart</button>
+                <button class="buy">BUY NOW</button>
+            </table>
+        </div>
+    </div>
+    <div class="nudetail">
+        <button class="det" ng-click="btn5()">Description</button>
+        <button class="det" ng-click="btn6()">Nutrition Facts</button>
+        <button class="det"ng-click="btn7()">Reviews</button>
+    </div>
+        <div id="myDropdown" class="dropdown-content" ng-hide="myShow">
+            <p>
+                {{selectProduct.description}}
+            </p>
+        </div>
+        <div id="myDropdown" class="dropdown-content" ng-hide="myNu">
+            <img src="../Image/{{selectProduct.Nutritionalinformation}}" alt="">
+        </div>
+        <div id="myDropdown" class="dropdown-content" ng-hide="myreview">
+            <h6>Guest 1</h6>
+            <div class="rating2 border-0 bg-light mb-2">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star-half-stroke"></i>
+                <i class="fa-regular fa-star"></i>
+            </div>
+            <p>
+                {{selectProduct.review}}
+            </p>
+            <h3>Write a review</h3>
+            <table>
+                <tr>
+                    <td>
+                        <div class="form-outline mb-4">
+                            <div class="form-label" > <span style="color: red;">*</span> <label for="name">Your Name</label></div>
+                            <input type="text" />
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-outline mb-4">
+                            <div class="form-label" > <span style="color: red;">*</span> <label for="name">Your Review</label></div>
+                            <input class="re" type="text" />
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span style="color: red;">*</span>Rating
+                        <div class="rating2 border-0 bg-light mb-2">
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <button class="sub" type="submit">Submit</button>
+                    </th>
+                </tr>
+            </table>
+            
+        </div>
+</div>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+<script src="/sourecode/JS/script.js"></script>
+
+

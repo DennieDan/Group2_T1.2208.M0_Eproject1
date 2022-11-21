@@ -1,0 +1,76 @@
+.detail{
+    font-family: 'Inter';
+  }
+  .nadetail{
+      display: flex;
+      justify-content: space-around;
+  }
+  
+  .nudetail {
+      display: flex;
+      font-size: 16px;
+      border: none;
+      
+    }
+    .add{
+      border-radius: 10px;
+      border: none;
+      background-color: #5D9DD8;
+      width: 307px;
+      height: 61px;
+      color: white;
+    }
+    .buy{
+      border-radius: 10px;
+      border: none;
+      background-color: #7C3452;
+      width: 213px;
+      height: 61px;
+      color: black;
+    }
+    .rating2{
+      display: flex;
+      align-items: center;
+      /* padding-left: 20px;
+      padding-right: 20px; */
+      font-size: 20px;
+      color: rgb(255, 191, 0);
+  }
+  .det{
+    
+    display: flex;
+    margin-top: 1%;
+    margin-left: 5%;
+    border-radius: 10px;
+    width: 214.38px;
+    height: 70px;
+    font-size: 25px;
+    line-height: 30px;
+    background-color: white;
+  }
+  .sub{
+    display: flex;
+  
+    margin-top: 1%;
+    margin-left: 60%;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    line-height: 28px;
+    width: 200px;
+    height: 40px;
+    text-align: center;
+    background-color: #7C3452;
+    color: black;
+  
+  }
+  .dropdown-content{
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .re{
+    width: 500px;
+    height: 300px;
+  }
+  

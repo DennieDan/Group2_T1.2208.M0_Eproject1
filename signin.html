@@ -1,0 +1,83 @@
+<!-- signin -->
+<link rel="stylesheet" href="/CSS/signin.css">
+<div class="address-container">
+  <a href="#/"><i class="fa-solid fa-house"></i></a>
+  <div class="address">
+      <a href="#/"> Home </a>/
+      <a href="#!signin"> SignIn </a>
+  </div>
+</div>
+<div class="img-si">
+    <img src="/Image/grape_bigger.png" alt="logo" class="img-sign">
+</div>
+<form class="sign-in">
+    
+    <div>
+        <h3>
+            SIGN IN
+        </h3>
+    </div>
+    <table id="sign-in-table">
+        <tr>
+            <td>
+                <!-- Email input  -->
+    <div class="form-outline mb-4">
+        <div class="form-label" ><label for="email">Email Address</label></div>
+        <input id="email" type="email" class="form-control" ng-model="email" />
+    </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <!-- Password input  -->
+    <div class="form-outline mb-4">
+        <div class="form-label" ><label for="password">Password</label></div>
+        <input id="password" type="password" class="form-control" ng-model="pass" />
+    </div>
+            </td>
+        </tr>
+    </table>
+
+    <!-- Submit button  -->
+        <button type="submit" ng-click="btn2()" class="btn2 btn-primary btn-block mb-4">Login</button>
+        <span class="text-danger" style="color:red">{{ error }}</span>
+    <!-- 2 column grid layout for inline styling  -->
+    <div class="row mb-4">
+         <!-- <div class="col d-flex justify-content-center">
+             Checkbox
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+                <label class="form-check-label" for="form2Example31"> Remember me </label>
+            </div>-->
+        </div> 
+
+    <div class="col">
+        
+        <p>Don't have acount ? <a href="#!signup" class="create">Create New Acount</a></p>
+    </div>
+  </div>
+
+  <!-- bonus -->
+  <!-- <div class="text-center">
+        <p>or sign up with:</p>
+    <button type="button" class="btn btn-link btn-floating mx-1">
+        <i class="fab fa-facebook-f"></i>
+    </button>
+
+    <button type="button" class="btn btn-link btn-floating mx-1">
+        <i class="fab fa-google"></i>
+    </button>
+
+    <button type="button" class="btn btn-link btn-floating mx-1">
+        <i class="fab fa-twitter"></i>
+    </button>
+  </div> 
+</form> 
+ -->
+ <!-- script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-route.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script> <!--jQuery-->
+    <script src="JS/script.js"></script>
+    <script src="/sourecode/JS/signin.js"></script>
+ 

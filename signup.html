@@ -1,0 +1,113 @@
+<!-- signin -->
+<link rel="stylesheet" href="/CSS/signin.css">
+<!-- !bootstrap alert -->
+<!-- <div class="alert alert-success alert-dismissible fade show" ng-show="confirmAlert">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>Success!</strong> Your order has been taken.
+</div> -->
+<div class="address-container">
+  <a href="#/"><i class="fa-solid fa-house"></i></a>
+  <div class="address">
+      <a href="#/"> Home </a>/
+      <a href="#!signup"> Signup </a>
+  </div>
+</div>
+<div class="img-si">
+    <img src="/Image/grape_bigger.png" alt="logo" class="img-sign">
+</div>
+<form class="sign-in">
+    <div>
+        <h3>
+            SIGN UP
+        </h3>
+    </div>
+    <table id="sign-up-table">
+        <tr>
+            <td>
+                <!-- Name Input -->
+    <div class="form-outline mb-4">
+        <div class="form-label"><label for="name" >Name</label></div>
+        <input type="text" id="name" required class="form-control"/><br>
+        <span style="color: red;">Name is required</span>
+    </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <!-- Email input -->
+    <div class="form-outline mb-4">
+        <div class="form-label"><label for="email" >Email Address</label></div>
+        <input type="email" id="email" required class="form-control"/><br>
+        <span style="color: red;">Email is required</span>
+    </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <!-- Password input -->
+    <div class="form-outline mb-4">
+        <div class="form-label"><label for="password" >Password</label></div>
+        <input type="password" id="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w]).{8,}$" required class="form-control"/>
+    </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <!-- confirm pass -->
+    <div class="form-outline mb-4">
+        <div class="form-label"><label for="conpassword" >Confirm Password</label></div>
+        <input type="password" id="conpassword" required class="form-control"/>
+    </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <!-- tel -->
+    <div class="form-outline mb-4">
+        <div class="form-label"><label for="tel" >Telephone</label></div>
+        <input type="tel" id="tel" required class="form-control"/>
+    </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <!-- address -->
+    <div class="form-outline mb-4">
+        <div class="form-label"><label for="address" >Address</label></div>
+        <input type="text" id="address" class="form-control"/>
+    </div>
+            </td>
+        </tr>
+    </table>
+    
+    <!-- Submit button -->
+        <button type="submit" ng-click="btn3()" class="btn2 btn-primary btn-block mb-4">Sign Up</button>
+    <!-- 2 column grid layout for inline styling -->
+    <div class="row mb-4">
+        <!-- <div class="col d-flex justify-content-center">
+             Checkbox 
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+                <label class="form-check-label" for="form2Example31"> Remember me </label>
+            </div>
+        </div> -->
+  </div>
+
+  <!-- bonus -->
+  <!-- <div class="text-center">
+        <p>or sign up with:</p>
+    <button type="button" class="btn btn-link btn-floating mx-1">
+        <i class="fab fa-facebook-f"></i>
+    </button>
+
+    <button type="button" class="btn btn-link btn-floating mx-1">
+        <i class="fab fa-google"></i>
+    </button>
+
+    <button type="button" class="btn btn-link btn-floating mx-1">
+        <i class="fab fa-twitter"></i>
+    </button>
+  </div> -->
+</form>
+
+<script src="/sourecode/JS/script.js"></script>

@@ -1,0 +1,213 @@
+<link rel="stylesheet" href="/CSS/cart.css">
+<div class="address-container">
+    <a href="#/"><i class="fa-solid fa-house"></i></a>
+    <div class="address">
+        <a href="#/"> Home </a>/
+        <a href="#!cart"> Shopping Cart </a>
+    </div>
+</div>
+
+<!-- !bootstrap alert -->
+<div class="alert alert-danger alert-dismissible fade show" ng-show="giftAlert">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>Alert!</strong> You haven't selected any gift pack yet.
+</div>
+<div class="alert alert-success alert-dismissible fade show" ng-show="giftSuccessAlert">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>Success!</strong> Your Festival Gift Packs have been added to Shopping Cart.
+</div>
+
+<div class="alert alert-danger alert-dismissible fade show" ng-show="shipCheckAlert">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>Alert!</strong> You haven't selected any delivery method yet.
+</div>
+<div class="alert alert-success alert-dismissible fade show" ng-show="shipCheckSuccess">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>Success!</strong> Your shipping estimate has been applied.
+</div>
+
+<div class="alert alert-danger alert-dismissible fade show" ng-show="goCheckout">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>Alert!</strong> Your shopping cart is empty.
+</div>
+
+<!-- !Page First Row -->
+<div class="page-first-row">
+    <div class="page-title">
+        Shopping Cart (1600 gr) {{shipping}}
+        <hr>
+    </div>
+</div>
+
+<section class="cart-body">
+    <!-- !Cart table -->
+    <div class="container my-4">
+        <table id="cart-table" width="100%">
+            <thead>
+                <tr>
+                    <td>Image</td>
+                    <td>Product Name</td>
+                    <td>Unit Price</td>
+                    <td>Quantity</td>
+                    <td>Total</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="cart in carts | orderBy:p_id">
+                    <td><img src="../Image/{{cart.p_img}}" alt="walnut" height="100%"></td>
+                    <td><div>{{cart.p_name}}</div></td>
+                    <td>{{cart.p_price | vndFilter}}</td>
+                    <td>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-6 mr-0">
+                                    <input type="number" class="cart-quantity" ng-model="cart.p_qty" min="1" value="1">
+                                </div>
+                                <div class="col-sm-6 ml-0">
+                                    <button type="button" class="btn btn-danger" ng-click="removeItem(cart)"><i class="fa-solid fa-trash"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>{{cart.p_qty * cart.p_price | vndFilter}}</td>
+                </tr>
+                <!-- <tr>
+                    <td><img src="../Image/walnut.jpg" alt="walnut" height="100%"></td>
+                    <td><div>Watermelon Seeds 400gr</div></td>
+                    <td>$19.99</td>
+                    <td>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-6 mr-0">
+                                    <input type="number" class="cart-quantity" min="1" value="1">
+                                </div>
+                                <div class="col-sm-6 ml-0">
+                                    <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>$19.99</td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container mb-4">
+        <div class="row">
+            <!-- !What would you like to do next? -->
+            <div class="col-sm-8">
+                <div class="basic-container">
+                    <div class="basic-title">
+                        What would you like to do next?
+                        <hr>
+                    </div>
+                    <div class="do-next-section">
+                        <div class="do-next">
+                            <div class="do-next-first-row" ng-click="showGiftPack = !showGiftPack">
+                                <div class="do-next-title">Get my Festival Gift Packs</div>
+                                <!-- <div class="minus-icon" ng-show="showGiftPack" ng-click="showGiftPack = false"><i class="fa-solid fa-circle-minus"></i></div> -->
+                            </div>
+                        </div>
+                        <div id="gift-pack" ng-show="showGiftPack">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div>Select your preferable gift packs</div>
+                                    </div>
+                                    <div class="gift-check col-sm-6">
+                                        <input type="checkbox" class="gift" name="gift"> Fresh Fruity 1 - For visiting friends <br>
+                                        <input type="checkbox" class="gift" name="gift"> Gorgeous Combo Packs - For ceremony
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="get-quote-area">
+                                <button class="get-quote-btn" ng-click="giftPackCheck()">
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="grey-hr">
+
+                    <div class="do-next-section">
+                        <div class="do-next">
+                            <div class="do-next-first-row" ng-click="showShipEstimate = !showShipEstimate">
+                                <div class="do-next-title">Estimate Shipping fee</div>
+                                <!-- <div class="minus-icon" ng-show="showShipEstimate" ng-click="showShipEstimate = false"><i class="fa-solid fa-circle-minus"></i></div> -->
+                            </div>
+                        </div>
+                        <div id="ship-estimate" ng-show="showShipEstimate">
+                            <div class="container">
+                                <div>Select your destination to get a shipping estimate</div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <table id="city-select">
+                                            <tr>
+                                                <td>City <span style="color: red;">*</span></td>
+                                                <td>
+                                                    <select id="state" name="state" ng-model="state">
+                                                        <option value="">--Please Select--</option>
+                                                        <option ng-repeat="city in cities" ng-value="{{city.state_code}}">{{city.state_name}}</option>
+                                                    </select>
+                                                    {{state}} <!--use for check--> 
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="alert-content" ng-show="state">
+                                            <input type="radio" id="ship-1" name="shipping" ng-model="shipping" value="ship-1"><label for="ship-1"> Free shipping (in {{shipDay}} days) </label>
+                                            <br>
+                                            <input type="radio" id="ship-2" name="shipping" ng-model="shipping" value="ship-2"><label for="ship-2"> High speed delivery (in 48 hours) - {{shipFee | vndFilter}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="get-quote-area">
+                                <button class="get-quote-btn" ng-click="shipCheck()">
+                                    Get Quotes
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- !Total-Bill table -->
+            <div class="col-sm-4">
+                <div class="basic-container">
+                    <table id="cart-total-table">
+                        <tr>
+                            <td>Sub-Total:</td>
+                            <td>{{getSubTotal() | vndFilter}}</td>
+                        </tr>
+                        <tr ng-show="shipTotal">
+                            <td>Shipping:</td>
+                            <td>{{shipCost | vndFilter}}</td>
+                        </tr>
+                        <tr>
+                            <td>Total:</td>
+                            <td>{{getTotal() | vndFilter}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="continue-check-area">
+            <button class="continue-btn">
+                <a href="#/">
+                    Continue Shopping
+                </a>
+            </button>
+            <button class="get-quote-btn" ng-click="toCheckout()">
+                Checkout
+            </button>
+        </div>
+    </div>
+</section>
+
