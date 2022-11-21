@@ -510,6 +510,7 @@ var app = angular.module("myProject", ["ngRoute"]);
                         padding: false, 
                         'onok': function()
                         {
+                            $scope.confirmAbled = true;
                             disclaimerCheck.prop('checked', true);
                             alertify.success('Accepted');
                         },
@@ -599,7 +600,6 @@ var app = angular.module("myProject", ["ngRoute"]);
                     $scope.disclaimerAlert = true;
                     return false;
                 }
-                alert("Alert before confirm");
                 $rootScope.confirmAlert = true;
                 $location.path("/");
                 $("html, body").animate({ scrollTop: 0 }, 200);
