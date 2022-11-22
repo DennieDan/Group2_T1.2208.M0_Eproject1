@@ -140,7 +140,7 @@
                     <input type="number" ng-model="s.qty" class="cart-quantity" min="1" value="1">
                 </div>
                 <div class="wishlist">
-                    <a href="#!wishlist"><i class="fa-regular fa-heart"></i></a>
+                    <div ng-click="addToWish(s)"><i class="fa-regular fa-heart"></i></div>
                 </div>
                 <div class="add-to-cart">
                     <button type="button" ng-click="addToCart(s)">Add to cart</button>
