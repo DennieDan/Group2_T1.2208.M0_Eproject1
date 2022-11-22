@@ -88,6 +88,7 @@ var app = angular.module("myProject", ["ngRoute"]);
             $rootScope.shipFee; //display value in shipping Estimate
             $rootScope.shipCost = 0; //total ship fee after selection
             $rootScope.carts = [];
+            $rootScope.wishlist = [];
 
 
             const div = document.createElement('div');
@@ -134,13 +135,11 @@ var app = angular.module("myProject", ["ngRoute"]);
                 // }
                 if ($rootScope.carts.length > 0)
                 {
-                    alert("Hi a second alert");
                     for (var i = 0; i < $rootScope.carts.length; i++)
                     {
                         if (product.id === $rootScope.carts[i].p_id)
                         {
                             $rootScope.carts[i].p_qty = product.qty;
-                            alert("no");
                             break;
                         }
                         else if (i == ($rootScope.carts.length-1))
@@ -158,7 +157,6 @@ var app = angular.module("myProject", ["ngRoute"]);
                 }
                 else
                 {
-                    alert("Hi a third alert");
                     $rootScope.carts.push(
                         {"p_id": product.id, 
                         "p_name": product.name, 
@@ -169,13 +167,74 @@ var app = angular.module("myProject", ["ngRoute"]);
                         "p_qty": product.qty});
                 }
                 alert("Add to cart successfully");
+                $("html, body").animate({ scrollTop: 0 }, 200);
+            }
+
+            $rootScope.addToWish = function(product)
+            {
+                // var found = findItemById($rootScope.carts, product.id);
+                // if (found) 
+                // {
+                //     found.p_qty == product.qty;
+                // }
+                if ($rootScope.wishlist.length > 0)
+                {
+                    for (var i = 0; i < $rootScope.wishlist.length; i++)
+                    {
+                        if (product.id === $rootScope.wishlist[i].p_id)
+                        {
+                            break;
+                        }
+                        else if (i == ($rootScope.wishlist.length-1))
+                        {
+                            $rootScope.wishlist.push(
+                            {"p_id": product.id, 
+                            "p_name": product.name, 
+                            "p_img": product.img, 
+                            "p_price": product.price, 
+                            "p_description": product.description, 
+                            "p_cat": product.cat,
+                            "p_qty": product.qty});
+                        }
+                    }
+                }
+                else
+                {
+                    $rootScope.wishlist.push(
+                        {"p_id": product.id, 
+                        "p_name": product.name, 
+                        "p_img": product.img, 
+                        "p_price": product.price, 
+                        "p_description": product.description, 
+                        "p_cat": product.cat,
+                        "p_qty": product.qty});
+                }
+                alert("Add to wishlist successfully");
+            }
+
+            $rootScope.syncQty = function(item)
+            {
+                for (var i = 0; i < $rootScope.plist.length; i++)
+                {
+                    if (item.p_id == $rootScope.plist[i].id)
+                    {
+                        $rootScope.plist[i].qty = item.p_qty;
+                        alert("Product's quantity has been updated");
+                    }
+                    break;
+                }
             }
 
             $rootScope.removeItem = function(item) 
             {
-                alert('This is an alert from cart');
                 var index = $rootScope.carts.indexOf(item);
                 $rootScope.carts.splice(index, 1);
+            };
+
+            $rootScope.removeWish = function(item) 
+            {
+                var index = $rootScope.wishlist.indexOf(item);
+                $rootScope.wishlist.splice(index, 1);
             };
 
             $rootScope.getSubTotal = function()
@@ -212,39 +271,63 @@ var app = angular.module("myProject", ["ngRoute"]);
                 return totalItem;
             }
 
-            $http.get("./JSON/product.json").then(function(response)
+            $rootScope.applyOffer = function(item)
+            {
+                var index = $rootScope.offers.indexOf(item);
+                if (confirm("Apply this coupon?") == true)
+                {
+                    $rootScope.offers.splice(index, 1);
+                    alert("Apply coupon successfully!");
+                    return;
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+            $rootScope.scrollUp = function()
+            {
+                $("html, body").animate({ scrollTop: 0 }, 200);
+            }
+
+            $http.get("JSON/product.json").then(function(response)
             {
                 $rootScope.plist = response.data.productList;   
             })
-            $http.get("./JSON/user.json").then(function(response)
+            $http.get("JSON/user.json").then(function(response)
             {
                 $rootScope.list = response.data.userList;
             })
-            $http.get("./JSON/offers.json").then(function(rsp)
+            $http.get("JSON/offers.json").then(function(rsp)
             {
                 $rootScope.offers = rsp.data.offersList;
             })
-            $http.get("./JSON/city.json").then(function(rsp)
+            $http.get("JSON/city.json").then(function(rsp)
             {
                 $rootScope.cities = rsp.data.cityList;
             })
-            $http.get("./JSON/topsale.json").then(function(response)
+            $http.get("JSON/topsale1.json").then(function(response)
             {
-                $rootScope.slist = response.data.productList2;   
+                $rootScope.slist = response.data.productList20;   
             })
-            $http.get("./JSON/dryfruits.json").then(function(response)
+            $http.get("JSON/topsale.json").then(function(response)
+            {
+                $rootScope.newlist = response.data.productList2;   
+            })
+            $http.get("JSON/dryfruits.json").then(function(response)
             {
                 $rootScope.dlist = response.data.dryfruitList;   
             })
-            $http.get("./JSON/nuts.json").then(function(response)
+            $http.get("JSON/nuts.json").then(function(response)
             {
                 $rootScope.nlist = response.data.nutList;
             })
-            $http.get("./JSON/seeds.json").then(function(response)
+            $http.get("JSON/seeds.json").then(function(response)
             {
                 $rootScope.elist = response.data.seeds;
             })
-            $http.get("./JSON/combopacks.json").then(function(response)
+            $http.get("JSON/combopacks.json").then(function(response)
             {
                 $rootScope.clist = response.data.combopacks;
             })
@@ -259,6 +342,20 @@ var app = angular.module("myProject", ["ngRoute"]);
         {
             this.shipping = "";
         });
+
+        // app.service("qtyService", function($rootScope)
+        // {
+        //     for (var i = 0; i < $rootScope.plist.length; i++)
+        //     {
+        //         for (var j = 0; j < $rootScope.carts.length; j++)
+        //         {
+        //             if (($rootScope.plist[i].id == $rootScope.carts[j].p_id) && ($rootScope.plist[i].qty != $rootScope.carts[j].p_qty))
+        //             {
+        //                 $rootScope.plist[i].qty = $rootScope.carts[j].p_qty;
+        //             }
+        //         }
+        //     }
+        // })
 
         app.controller("productController", function($rootScope,$scope)
         {
@@ -367,6 +464,23 @@ var app = angular.module("myProject", ["ngRoute"]);
             }
         })
 
+        app.controller("signupController", function($scope,$location)
+        {
+            $scope.btn3 = function(path){
+                //tao 1 doi tuong JSON, noi dung gia tri cac o input o form
+                var newuser = {"name": $scope.name,
+                 "email": $scope.email,
+                  "pass": $scope.pass,
+                "telephone": $scope.telephone,
+                "address": $scope.address};
+
+                //them vao danh sach bang phuong thuc push()
+                $scope.list.push(newuser);
+                alert("Add new user successfully");
+                $location.path("/signin");
+            }
+        })
+
         app.controller("wishlistController", function($scope,$rootScope)
         {
 
@@ -374,39 +488,8 @@ var app = angular.module("myProject", ["ngRoute"]);
 
         app.controller("cartController", function($scope, $rootScope, $location, stateService)
         {
-            // const div = document.createElement('div');
-            // div.setAttribute("class","alert-content");
-
-            // const radio1 = document.createElement("input");
-            // radio1.setAttribute("id","radio1");
-            // radio1.setAttribute("class","shipping");
-            // radio1.setAttribute('type',"radio");
-            // radio1.setAttribute('name',"shipping");
-            // radio1.setAttribute('ng-model',"shipping");
-            // radio1.setAttribute('value','ship-1');
-            // const label1 = document.createElement('label');
-            // label1.textContent = " Free shipping (in 5 days) - $0.00";
-            // label1.setAttribute("for", "radio1");
-            // div.appendChild(radio1);
-            // div.appendChild(label1);
-
-            // let br = document.createElement("br");
-            // div.appendChild(br);
-
-            // const radio2 = document.createElement("input");
-            // radio2.setAttribute("id","radio2");
-            // radio1.setAttribute("class","shipping");
-            // radio2.setAttribute('type',"radio");
-            // radio2.setAttribute('name',"shipping");
-            // radio2.setAttribute('ng-model',"shipping");
-            // radio2.setAttribute('value',"ship-2");
-            // const label2 = document.createElement('label');
-            // label2.textContent = " High speed delivery (in 48 hours) - $5.69";
-            // label2.setAttribute("for", "radio2");
-            // div.appendChild(radio2);
-            // div.appendChild(label2);
-
-
+            $scope.gift1 = false;
+            $scope.gift2 = false;
             if ($scope.selectAll == true)
             {
                 alert("This is an alert");
@@ -450,6 +533,37 @@ var app = angular.module("myProject", ["ngRoute"]);
                 }
                 else
                 {
+                    for (var i = 0; i < $rootScope.carts.length; i++)
+                    {
+                        if (($rootScope.carts[i].p_id == "26") || ($rootScope.carts[i].p_id == "27") )
+                        {
+                            return false;
+                        }
+                    }
+                    if ($scope.gift1 == true)
+                    {
+                        $rootScope.carts.push(
+                            {"p_id": "26", 
+                            "p_name": "Fresh Fruity 1 - For visiting friends", 
+                            "p_img": "gift1.webp", 
+                            "p_price": "0", 
+                            "p_description": "Festival Gift Packs", 
+                            "p_cat": "gift packs",
+                            "p_qty": "1"});
+                    }
+
+                    if ($scope.gift2 == true)
+                    {
+                        $rootScope.carts.push(
+                            {"p_id": "27", 
+                            "p_name": "Gorgeous Combo Packs - For ceremony", 
+                            "p_img": "gift2.jpeg", 
+                            "p_price": "0", 
+                            "p_description": "Festival Gift Packs", 
+                            "p_cat": "gift packs",
+                            "p_qty": "1"});
+                    }
+                    
                     $("html, body").animate({ scrollTop: 0 }, 200);
                     $scope.giftAlert = false;
                     $scope.giftSuccessAlert = true;
@@ -544,10 +658,12 @@ var app = angular.module("myProject", ["ngRoute"]);
             $scope.allowUpdate = true;
             $scope.hideAndShow = false;
             $scope.showCredit = false;
-            $scope.showNewAlert = false;
+            $scope.showCouponTrue = false;
+            $scope.showCouponFalse = false;
             $scope.showAddress2 = false;
             $scope.confirmAbled = false;
             $scope.cardShow;
+            $scope.coupon = '';
 
             const div = document.createElement('div');
             div.style.maxHeight = "400px";
@@ -593,6 +709,26 @@ var app = angular.module("myProject", ["ngRoute"]);
 
             
             $scope.state = stateService.state;
+
+            $scope.couponCheck = function()
+            {
+                for (var i = 0; i < $rootScope.offers.length; i++)
+                {
+                    if ($scope.coupon == $rootScope.offers[i].code)
+                    {
+                        $rootScope.offers.splice(i, 1);
+                        $scope.showCouponTrue = true;
+                        $scope.showCouponFalse = false;
+                        return;
+                    }
+                    else
+                    {
+                        $scope.showCouponTrue = false;
+                        $scope.showCouponFalse = true;
+                        return;
+                    }
+                }
+            }
             
 
             // !binding value of state

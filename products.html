@@ -72,17 +72,6 @@
                         </div>
                     </div>
                 </div>
-                Hiiiii
-                <table>
-                    <tr ng-repeat="cart in carts">
-                        <td>hiii</td>
-                        <td>{{cart.p_id}}</td>
-                        <td>{{cart.p_name}}</td>
-                        <td>{{cart.p_price}}</td>
-                        <td>-Qty: {{cart.p_qty}}</td>
-                        <td>-Price: {{cart.p_qty * cart.p_price}}</td>
-                    </tr>
-                </table>
             </div>
           
         <div class="col-sm-9">
@@ -133,8 +122,8 @@
                                 </div>
                                 <div class="price">
                                     <div class="price-after">{{s.price | vndFilter}}</div>
-                                    <div class="price-before">$21.95</div>
-                                    <div class="price-discount">9% OFF</div>
+                                    <div class="price-before">{{s.price1 | vndFilter}}</div>
+                                    <div class="price-discount">{{s.sale}} OFF</div>
                                 </div>
                                 <br>
                             </div>
@@ -144,7 +133,7 @@
                                     <input type="number" ng-model="s.qty" class="cart-quantity" min="1" value="1">
                                 </div>
                                 <div class="wishlist">
-                                    <a href="#!wishlist"><i class="fa-regular fa-heart"></i></a>
+                                    <div ng-click="addToWish(s)"><i class="fa-regular fa-heart"></i></div>
                                 </div>
                                 <div class="add-to-cart">
                                     <button type="button" ng-click="addToCart(s)">Add to cart</button>

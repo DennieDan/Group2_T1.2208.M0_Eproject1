@@ -74,7 +74,7 @@
                                 <div class="discount-due">Until {{offer.due | date: 'longDate'}}</div>
                             </td>
                             <td>{{offer.code}}</td>
-                            <td><button type="button" class="btn btn-primary w-75">Copy</button></td>
+                            <td><button type="button" class="btn btn-primary w-75" ng-click="applyOffer(offer)">Copy</button></td>
                         </tr>
                     </tbody>
                 </table>

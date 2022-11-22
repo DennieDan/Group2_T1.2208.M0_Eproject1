@@ -8,6 +8,7 @@
 </div>
 
 <!-- !bootstrap alert -->
+
 <div class="alert alert-danger alert-dismissible fade show" ng-show="giftAlert">
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
     <strong>Alert!</strong> You haven't selected any gift pack yet.
@@ -34,7 +35,7 @@
 <!-- !Page First Row -->
 <div class="page-first-row">
     <div class="page-title">
-        Shopping Cart (1600 gr) {{shipping}}
+        Shopping Cart <!--{{shipping}}-->
         <hr>
     </div>
 </div>
@@ -59,15 +60,18 @@
                     <td><div>{{cart.p_name}}</div></td>
                     <td>{{cart.p_price | vndFilter}}</td>
                     <td>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-sm-6 mr-0">
+                        <div class="cart-action">
+                            <!-- <div class="row"> -->
+                                <div>
                                     <input type="number" class="cart-quantity" ng-model="cart.p_qty" min="1" value="1">
                                 </div>
-                                <div class="col-sm-6 ml-0">
+                                <div>
+                                    <button type="button" class="btn btn-primary" ng-click="syncQty(cart)">Update</button>
+                                </div>
+                                <div>
                                     <button type="button" class="btn btn-danger" ng-click="removeItem(cart)"><i class="fa-solid fa-trash"></i></button>
                                 </div>
-                            </div>
+                            <!-- </div> -->
                         </div>
                     </td>
                     <td>{{cart.p_qty * cart.p_price | vndFilter}}</td>
@@ -117,8 +121,8 @@
                                         <div>Select your preferable gift packs</div>
                                     </div>
                                     <div class="gift-check col-sm-6">
-                                        <input type="checkbox" class="gift" name="gift"> Fresh Fruity 1 - For visiting friends <br>
-                                        <input type="checkbox" class="gift" name="gift"> Gorgeous Combo Packs - For ceremony
+                                        <input type="checkbox" ng-model="gift1" class="gift" name="gift"> Fresh Fruity 1 - For visiting friends <br>
+                                        <input type="checkbox" ng-model="gift2" class="gift" name="gift"> Gorgeous Combo Packs - For ceremony
                                     </div>
                                 </div>
                             </div>

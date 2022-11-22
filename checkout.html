@@ -45,7 +45,7 @@
                                     <td class="radio-col"><input type="radio" name="address-choice" checked></td>
                                     <td class="deliver-address">
                                         <div class="name-phone">Nguyen Khanh Du | 0901 234 333</div>
-                                        <div class="address-detail">590 Cach Mang Thang 8, Ward 11, District 3, HCMC;lksadjhf;liadshjfa;lj</div>
+                                        <div class="address-detail">590 Cach Mang Thang 8, Ward 11, District 3, HCMC</div>
                                     </td>
                                 </tr>
                                 <tr ng-show="showAddress2">
@@ -160,7 +160,7 @@
                 <div class="basic-container row">
                     <div class="col-sm-6 px-0">
                         <div class="basic-title">
-                            Shipping Method {{shipping}} | {{checkshipping}}
+                            Shipping Method
                             <hr>
                         </div>
                         <table id="method-table">
@@ -240,21 +240,21 @@
                         <hr>
                     </div>
                     <div class="col-sm-5" id="coupon-enter">Enter your coupon here</div>
-                    <div class="col-sm-5"><input type="text" id="coupon-text" form="coupon-form"></div>
-                    <div class="col-sm-2 mb-3"><input type="submit" form="coupon-form" value="Submit" class="coupon-btn" ng-click="showNewAlert = !showNewAlert"></div>
+                    <div class="col-sm-5"><input type="text" id="coupon-text" ng-model="coupon" form="coupon-form"></div>
+                    <div class="col-sm-2 mb-3"><input type="submit" form="coupon-form" value="Submit" class="coupon-btn" ng-click="couponCheck()"></div>
 
-                    <div class="new-green-alert" ng-show="showNewAlert">
+                    <div class="new-green-alert" ng-show="showCouponTrue">
                         <div class="row px-0">
                             <div class="new-tick-cross col-sm-1"><i class="fa-solid fa-circle-check"></i></div>
-                            <div class="new-message col-sm-10">Success: Your shipping estimate has been applied!</div>
-                            <div class="new-xmark col-sm-1"><i class="fa-solid fa-xmark"></i></div>
+                            <div class="new-message col-sm-10">Success: Your coupon has been applied successfully!</div>
+                            <div class="new-xmark col-sm-1" ng-click="showCouponTrue = false"><i class="fa-solid fa-xmark"></i></div>
                         </div>
                     </div>
-                    <div class="new-red-alert" ng-hide="showNewAlert">
+                    <div class="new-red-alert" ng-show="showCouponFalse">
                         <div class="row px-0">
                             <div class="new-tick-cross col-sm-1"><i class="fa-solid fa-circle-xmark"></i></div>
                             <div class="new-message col-sm-10">Warning: Invalid coupon code!</div>
-                            <div class="new-xmark col-sm-1"><i class="fa-solid fa-xmark"></i></div>
+                            <div class="new-xmark col-sm-1" ng-click="showCouponFalse = false"><i class="fa-solid fa-xmark"></i></div>
                         </div>
                     </div>
 

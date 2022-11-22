@@ -30,22 +30,22 @@
 					        	</tr>
 					        </thead>
 					        <tbody>
-					        	<tr>
+					        	<tr ng-repeat="wish in wishlist">
 					        		<td width="20%">
 					        			<div class="display-flex align-center">
 		                                    <div class="img-product">
-		                                        <img src="Image/{{selectProduct.img}}" alt="" class="mCS_img_loaded">
+		                                        <img src="Image/{{wish.p_img}}" alt="" class="mCS_img_loaded">
 		                                    </div>
 	                                    </div>
 	                                </td>
                                     <td width="30%">
-                                        <div class="name-product">
-                                            {{selectProduct.name}}
+                                        <div class="product-name">
+                                            {{wish.p_name}}
                                         </div>
                                     </td>
-					        		<td width="15%" class="price">${{selectProduct.price1}}</td>
-					        		<td width="25%"><button class="round-black-btn small-btn">Add to Cart</button></td>
-					        		<td width="10%" class="text-center"><a href="#" class="trash-icon"><i class="far fa-trash-alt"></i></a></td>
+					        		<td width="15%" class="price">{{wish.p_price | vndFilter}}</td>
+					        		<td width="25%"><button class="round-black-btn small-btn" ng-click="addToCart(wish)">Add to Cart</button></td>
+					        		<td width="10%" class="text-center"><div class="trash-icon" ng-click="removeWish(wish)"><i class="far fa-trash-alt"></i></div></td>
 					        	</tr>
 					        	
 				        	</tbody>

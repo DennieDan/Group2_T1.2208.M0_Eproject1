@@ -124,6 +124,10 @@
 #cart-table td:nth-child(5) {
     width: 15%;
 }
+.cart-action {
+    display: flex;
+    justify-content: space-evenly;
+}
 
 /* !What would you like to do next */
 .basic-container {

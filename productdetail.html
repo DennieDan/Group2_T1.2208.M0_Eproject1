@@ -51,8 +51,8 @@
                     </tr>
                     <tr><br>
                         <div class="price">
-                            <div class="price-after">{{selectProduct.price1}}</div>
-                            <div class="price-before">{{selectProduct.price}}</div>
+                            <div class="price-after">{{selectProduct.price1 | vndFilter}}</div>
+                            <div class="price-before">{{selectProduct.price | vndFilter}}</div>
                             <div class="price-discount">{{selectProduct.sale}}</div>
                     </tr><br>
                     <tr>
@@ -60,15 +60,15 @@
                     </tr><br>
                     <div class="product-count">
                         <label for="size">Quantity:<!--<form action="#" class="display-flex">-->
-                             <input class="quantity" id="id_form-0-quantity" min="0" name="form-0-quantity" value="1" type="number" color="blue">
+                             <input class="quantity" id="id_form-0-quantity" ng-model="selectProduct.qty" min="1" name="form-0-quantity" value="1" type="number" color="blue">
                     <!--</form-->
                         </label>
                         <br><br>
                         <!-- <a href="#" class="round-black-btn">Add to Cart</a>
                         <a href="#" class="round-pink-btn">Buy now</a> -->
                     </div><br>
-                    <button class="add">Add to cart</button>
-                    <button class="buy">BUY NOW</button>
+                    <button class="add" ng-click="addToCart(selectProduct)">Add to cart</button>
+                    <a href="#!cart"><button class="buy" ng-click="addToCart(selectProduct)">BUY NOW</button></a>
                 </table>
             </div>
         </div>

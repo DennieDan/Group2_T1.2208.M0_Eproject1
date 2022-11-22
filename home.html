@@ -42,13 +42,13 @@
           <div class="carousel-inner">
             <div class="carousel-item active">
               <div class="row justify-content-center">
-                  <div class="col-lg-3">
+                  <div class="col-lg-3" ng-repeat="top in slist">
                       <div class="card border-0 bg-light mb-2">
                           <div class="card-body">
                             <a href="#!dryfruits">
-                                <img src="../Image/chuoisay.jpg" alt="seed1" width="100%" height="280vw">
+                                <img src="Image/{{top.img}}" alt="seed1" width="100%" height="280vw">
                               <div class="card-info">
-                                  <div class="product-name">banana chips - 400gr</div>
+                                  <div class="product-name">{{top.name}}</div>
                                   <div class="rating">
                                       <i class="fa-solid fa-star"></i>
                                       <i class="fa-solid fa-star"></i>
@@ -57,9 +57,9 @@
                                       <i class="fa-regular fa-star"></i>
                                   </div>
                                   <div class="price">
-                                      <div class="price-after">$40000</div>
-                                      <div class="price-before">$30000</div>
-                                      <div class="price-discount">25% OFF</div>
+                                      <div class="price-after">{{top.price | vndFilter}}</div>
+                                      <div class="price-before">{{top.price1 | vndFilter}}</div>
+                                      <div class="price-discount">{{top.sale}} OFF</div>
                                   </div>
                                   <br>
                               </div>
@@ -69,118 +69,10 @@
                                     <input type="number" class="cart-quantity" min="1" value="1">
                                 </div>
                                 <div class="wishlist">
-                                    <a href="#!wishlist"><i class="fa-regular fa-heart"></i></a>
+                                    <div ng-click="addToWish(top)"><i class="fa-regular fa-heart"></i></div>
                                 </div>
                                 <div class="add-to-cart">
-                                    <button type="button" ng-click="addToCart(s)">Add to cart</button>
-                                </div>
-                            </div> 
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-3">
-                      <div class="card border-0 bg-light mb-2">
-                          <div class="card-body">
-                            <a href="#!dryfruits">
-                                <img src="../Image/hongsay.jpg" alt="seed1" width="100%" height="280vw">
-                              <div class="card-info">
-                                  <div class="product-name">dried persimmons - 400gr</div>
-                                  <div class="rating">
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-regular fa-star-half-stroke"></i>
-                                      <i class="fa-regular fa-star"></i>
-                                  </div>
-                                  <div class="price">
-                                      <div class="price-after">$32000</div>
-                                      <div class="price-before">$40000</div>
-                                      <div class="price-discount">20% OFF</div>
-                                  </div>
-                                  <br>
-                              </div>
-                            </a>
-                            <div class="buy-action">
-                                <div class="quantity">
-                                    <input type="number" class="cart-quantity" min="1" value="1">
-                                </div>
-                                <div class="wishlist">
-                                    <a href="#!wishlist"><i class="fa-regular fa-heart"></i></a>
-                                </div>
-                                <div class="add-to-cart">
-                                    <button type="button" ng-click="addToCart(s)">Add to cart</button>
-                                </div>
-                            </div> 
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-3">
-                      <div class="card border-0 bg-light mb-2">
-                          <div class="card-body">
-                            <a href="#!nuts">
-                                <img src="../Image/walnut.jpg" alt="seed1" width="100%" height="280vw">
-                              <div class="card-info">
-                                  <div class="product-name">dried walnuts - 400gr</div>
-                                  <div class="rating">
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-regular fa-star-half-stroke"></i>
-                                      <i class="fa-regular fa-star"></i>
-                                  </div>
-                                  <div class="price">
-                                      <div class="price-after">$81000</div>
-                                      <div class="price-before">$90000</div>
-                                      <div class="price-discount">20% OFF</div>
-                                  </div>
-                                  <br>
-                              </div>
-                            </a>
-                            <div class="buy-action">
-                                <div class="quantity">
-                                    <input type="number" class="cart-quantity" min="1" value="1">
-                                </div>
-                                <div class="wishlist">
-                                    <a href="#!wishlist"><i class="fa-regular fa-heart"></i></a>
-                                </div>
-                                <div class="add-to-cart">
-                                    <button type="button" ng-click="addToCart(s)">Add to cart</button>
-                                </div>
-                            </div> 
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-3">
-                      <div class="card border-0 bg-light mb-2">
-                          <div class="card-body">
-                            <a href="#!combopacks">
-                                <img src="../Image/raucusay.jpg" alt="seed1" width="100%" height="280vw">
-                              <div class="card-info">
-                                  <div class="product-name">dried vegetables - 400gr</div>
-                                  <div class="rating">
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-regular fa-star-half-stroke"></i>
-                                      <i class="fa-regular fa-star"></i>
-                                  </div>
-                                  <div class="price">
-                                      <div class="price-after">$40000</div>
-                                      <div class="price-before">$50000</div>
-                                      <div class="price-discount">20% OFF</div>
-                                  </div>
-                                  <br>
-                              </div>
-                            </a>
-                            <div class="buy-action">
-                                <div class="quantity">
-                                    <input type="number" class="cart-quantity" min="1" value="1">
-                                </div>
-                                <div class="wishlist">
-                                    <a href="#!wishlist"><i class="fa-regular fa-heart"></i></a>
-                                </div>
-                                <div class="add-to-cart">
-                                    <button type="button" ng-click="addToCart(s)">Add to cart</button>
+                                    <button type="button" ng-click="addToCart(top)">Add to cart</button>
                                 </div>
                             </div> 
                           </div>
@@ -188,310 +80,6 @@
                   </div>
               </div>
             </div>
-            <div class="carousel-item">
-              <div class="row justify-content-center">
-                  <div class="col-lg-3">
-                      <div class="card border-0 bg-light mb-2">
-                          <div class="card-body">
-                            <a href="#!dryfruits">
-                                <img src="../Image/dates.jpg" alt="seed1" width="100%" height="280vw">
-                              <div class="card-info">
-                                  <div class="product-name">dried dates - 400gr</div>
-                                  <div class="rating">
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-regular fa-star-half-stroke"></i>
-                                      <i class="fa-regular fa-star"></i>
-                                  </div>
-                                  <div class="price">
-                                      <div class="price-after">$63000</div>
-                                      <div class="price-before">$70000</div>
-                                      <div class="price-discount">10% OFF</div>
-                                  </div>
-                                  <br>
-                              </div>
-                            </a>
-                            <div class="buy-action">
-                                <div class="quantity">
-                                    <input type="number" class="cart-quantity" min="1" value="1">
-                                </div>
-                                <div class="wishlist">
-                                    <a href="#!wishlist"><i class="fa-regular fa-heart"></i></a>
-                                </div>
-                                <div class="add-to-cart">
-                                    <button type="button" ng-click="addToCart(s)">Add to cart</button>
-                                </div>
-                            </div> 
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-3">
-                      <div class="card border-0 bg-light mb-2">
-                          <div class="card-body">
-                            <a href="#!seeds">
-                                <img src="../Image/chia.jpg" alt="seed1" width="100%" height="280vw">
-                              <div class="card-info">
-                                  <div class="product-name">chia seeds - 400gr</div>
-                                  <div class="rating">
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-regular fa-star-half-stroke"></i>
-                                      <i class="fa-regular fa-star"></i>
-                                  </div>
-                                  <div class="price">
-                                      <div class="price-after">$50000</div>
-                                      <div class="price-before">$55000</div>
-                                      <div class="price-discount">10% OFF</div>
-                                  </div>
-                                  <br>
-                              </div>
-                            </a>
-                            <div class="buy-action">
-                                <div class="quantity">
-                                    <input type="number" class="cart-quantity" min="1" value="1">
-                                </div>
-                                <div class="wishlist">
-                                    <a href="#!wishlist"><i class="fa-regular fa-heart"></i></a>
-                                </div>
-                                <div class="add-to-cart">
-                                    <button type="button" ng-click="addToCart(s)">Add to cart</button>
-                                </div>
-                            </div> 
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-3">
-                      <div class="card border-0 bg-light mb-2">
-                          <div class="card-body">
-                            <a href="#!seeds">
-                                <img src="../Image/pum.jpg" alt="seed1" width="100%" height="280vw">
-                              <div class="card-info">
-                                  <div class="product-name">pumpkin seeds - 400gr</div>
-                                  <div class="rating">
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-regular fa-star-half-stroke"></i>
-                                      <i class="fa-regular fa-star"></i>
-                                  </div>
-                                  <div class="price">
-                                      <div class="price-after">$54000</div>
-                                      <div class="price-before">$60000</div>
-                                      <div class="price-discount">10% OFF</div>
-                                  </div>
-                                  <br>
-                            </a>
-                            <div class="buy-action">
-                                <div class="quantity">
-                                    <input type="number" class="cart-quantity" min="1" value="1">
-                                </div>
-                                <div class="wishlist">
-                                    <a href="#!wishlist"><i class="fa-regular fa-heart"></i></a>
-                                </div>
-                                <div class="add-to-cart">
-                                    <button type="button" ng-click="addToCart(s)">Add to cart</button>
-                                </div>
-                            </div> 
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-3">
-                      <div class="card border-0 bg-light mb-2">
-                          <div class="card-body">
-                            <a href="#!dryfruits">
-                                <img src="../Image/vietquat.jpg" alt="seed1" width="100%" height="280vw">
-                              <div class="card-info">
-                                  <div class="product-name">dried blueberries - 400gr</div>
-                                  <div class="rating">
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-regular fa-star-half-stroke"></i>
-                                      <i class="fa-regular fa-star"></i>
-                                  </div>
-                                  <div class="price">
-                                      <div class="price-after">$109000</div>
-                                      <div class="price-before">$135000</div>
-                                      <div class="price-discount">20% OFF</div>
-                                  </div>
-                                  <br>
-                              </div>
-                            </a>
-                            <div class="buy-action">
-                                <div class="quantity">
-                                    <input type="number" class="cart-quantity" min="1" value="1">
-                                </div>
-                                <div class="wishlist">
-                                    <a href="#!wishlist"><i class="fa-regular fa-heart"></i></a>
-                                </div>
-                                <div class="add-to-cart">
-                                    <button type="button" ng-click="addToCart(s)">Add to cart</button>
-                                </div>
-                            </div>  
-                          </div>
-                      </div>
-                  </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="row justify-content-center">
-                  <div class="col-lg-3">
-                      <div class="card border-0 bg-light mb-2">
-                          <div class="card-body">
-                            <a href="#!dryfruits">
-                                <img src="../Image/dautay.jpg" alt="seed1" width="100%" height="280vw">
-                              <div class="card-info">
-                                  <div class="product-name">Dried strawberries - 400gr</div>
-                                  <div class="rating">
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-regular fa-star-half-stroke"></i>
-                                      <i class="fa-regular fa-star"></i>
-                                  </div>
-                                  <div class="price">
-                                      <div class="price-after">$99000</div>
-                                      <div class="price-before">$110000</div>
-                                      <div class="price-discount">10% OFF</div>
-                                  </div>
-                                  <br>
-                                  <div class="buy-action">
-                                    <div class="quantity">
-                                        <input type="number" ng-model="s.qty" class="cart-quantity" min="1" value="1">
-                                    </div>
-                                    <div class="wishlist">
-                                        <a href="#!wishlist"><i class="fa-regular fa-heart"></i></a>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <button type="button" ng-click="addToCart(s)">Add to cart</button>
-                                    </div>
-                                </div>
-                              </div>
-                            </a>
-                              
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-3">
-                      <div class="card border-0 bg-light mb-2">
-                          <div class="card-body">
-                            <a href="#!nuts">
-                                <img src="../Image/walnut.jpg" alt="seed1" width="100%" height="280vw">
-                              <div class="card-info">
-                                  <div class="product-name">Dried walnuts - 400gr</div>
-                                  <div class="rating">
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-regular fa-star-half-stroke"></i>
-                                      <i class="fa-regular fa-star"></i>
-                                  </div>
-                                  <div class="price">
-                                      <div class="price-after">$81000</div>
-                                      <div class="price-before">$90000</div>
-                                      <div class="price-discount">20% OFF</div>
-                                  </div>
-                                  <br>
-                              </div>
-                            </a>
-                            <div class="buy-action">
-                                <div class="quantity">
-                                    <input type="number" class="cart-quantity" min="1" value="1">
-                                </div>
-                                <div class="wishlist">
-                                    <a href="#!wishlist"><i class="fa-regular fa-heart"></i></a>
-                                </div>
-                                <div class="add-to-cart">
-                                    <button type="button" ng-click="addToCart(s)">Add to cart</button>
-                                </div>
-                            </div>  
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-3">
-                      <div class="card border-0 bg-light mb-2">
-                          <div class="card-body">
-                            <a href="#!nuts">
-                                <img src="../Image/oat.jpg" alt="seed1" width="100%" height="280vw">
-                              <div class="card-info">
-                                  <div class="product-name">Oat - 400gr</div>
-                                  <div class="rating">
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-regular fa-star-half-stroke"></i>
-                                      <i class="fa-regular fa-star"></i>
-                                  </div>
-                                  <div class="price">
-                                      <div class="price-after">$68000</div>
-                                      <div class="price-before">$85000</div>
-                                      <div class="price-discount">20% OFF</div>
-                                  </div>
-                                  <br>
-                              </div>
-                            </a>
-                            <div class="buy-action">
-                                <div class="quantity">
-                                    <input type="number" class="cart-quantity" min="1" value="1">
-                                </div>
-                                <div class="wishlist">
-                                    <a href="#!wishlist"><i class="fa-regular fa-heart"></i></a>
-                                </div>
-                                <div class="add-to-cart">
-                                    <button type="button" ng-click="addToCart(s)">Add to cart</button>
-                                </div>
-                            </div>   
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-3">
-                      <div class="card border-0 bg-light mb-2">
-                          <div class="card-body">
-                            <a href="#!nuts">
-                                <img src="../Image/buck.jpg" alt="seed1" width="100%" height="280vw">
-                              <div class="card-info">
-                                  <div class="product-name">Buckwheat - 400gr</div>
-                                  <div class="rating">
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-regular fa-star-half-stroke"></i>
-                                      <i class="fa-regular fa-star"></i>
-                                  </div>
-                                  <div class="price">
-                                      <div class="price-after">$100000</div>
-                                      <div class="price-before">$110000</div>
-                                      <div class="price-discount">10% OFF</div>
-                                  </div>
-                                  <br>
-                              </div>
-                            </a>
-                            <div class="buy-action">
-                                <div class="quantity">
-                                    <input type="number" class="cart-quantity" min="1" value="1">
-                                </div>
-                                <div class="wishlist">
-                                    <a href="#!wishlist"><i class="fa-regular fa-heart"></i></a>
-                                </div>
-                                <div class="add-to-cart">
-                                    <button type="button" ng-click="addToCart(s)">Add to cart</button>
-                                </div>
-                            </div> 
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#card-slider0" data-bs-slide="prev">
-              <span aria-hidden="true"><div class="btn-circle"><i class="fa-solid fa-chevron-left" id="btn-prev"></i></div></span>
-              <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#card-slider0" data-bs-slide="next">
-              <span aria-hidden="true"><div class="btn-circle"><i class="fa-solid fa-chevron-right" id="btn-next"></i></div></span>
-              <span class="visually-hidden">Next</span>
-          </button>
         </div>
     </div>
 
@@ -507,13 +95,13 @@
           <div class="carousel-inner">
             <div class="carousel-item active">
               <div class="row justify-content-center">
-                  <div class="col-lg-3">
+                  <div class="col-lg-3" ng-repeat="news in newlist">
                       <div class="card border-0 bg-light mb-2">
                           <div class="card-body">
                             <a href="#!dryfruits">
-                                <img src="../Image/kiwisay.jpg" alt="seed1" width="100%" height="280vw">
+                                <img src="Image/{{news.img}}" alt="seed1" width="100%" height="280vw">
                               <div class="card-info">
-                                  <div class="product-name">dried flexible kiwi - 400gr</div>
+                                  <div class="product-name">{{news.name}}</div>
                                   <div class="rating">
                                       <i class="fa-solid fa-star"></i>
                                       <i class="fa-solid fa-star"></i>
@@ -522,9 +110,9 @@
                                       <i class="fa-regular fa-star"></i>
                                   </div>
                                   <div class="price">
-                                      <div class="price-after">$50000</div>
-                                      <div class="price-before">$55000</div>
-                                      <div class="price-discount">10% OFF</div>
+                                      <div class="price-after">{{news.price | vndFilter}}</div>
+                                      <div class="price-before">{{news.price1 | vndFilter}}</div>
+                                      <div class="price-discount">{{news.sale}} OFF</div>
                                   </div>
                                   <br>
                               </div>
@@ -537,418 +125,14 @@
                                     <a href="#!wishlist"><i class="fa-regular fa-heart"></i></a>
                                 </div>
                                 <div class="add-to-cart">
-                                    <button type="button" ng-click="addToCart(s)">Add to cart</button>
+                                    <button type="button" ng-click="addToCart(news)">Add to cart</button>
                                 </div>
                             </div>  
                           </div>
                       </div>
                   </div>
-                  <div class="col-lg-3">
-                      <div class="card border-0 bg-light mb-2">
-                          <div class="card-body">
-                            <a href="">
-                                <img src="../Image/camsay.jpg" alt="seed1" width="100%" height="280vw">
-                              <div class="card-info">
-                                  <div class="product-name">Dried Australian oranges - 400gr</div>
-                                  <div class="rating">
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-regular fa-star-half-stroke"></i>
-                                      <i class="fa-regular fa-star"></i>
-                                  </div>
-                                  <div class="price">
-                                      <div class="price-after">$36000</div>
-                                      <div class="price-before">$45000</div>
-                                      <div class="price-discount">20% OFF</div>
-                                  </div>
-                                  <br>
-                              </div>
-                            </a>
-                            <div class="buy-action">
-                                <div class="quantity">
-                                    <input type="number" class="cart-quantity" min="1" value="1">
-                                </div>
-                                <div class="wishlist">
-                                    <a href="#!wishlist"><i class="fa-regular fa-heart"></i></a>
-                                </div>
-                                <div class="add-to-cart">
-                                    <button type="button" ng-click="addToCart(s)">Add to cart</button>
-                                </div>
-                            </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-3">
-                      <div class="card border-0 bg-light mb-2">
-                          <div class="card-body">
-                            <a href="#!dryfruits">
-                                <img src="../Image/khoailangtim.jpg" alt="seed1" width="100%" height="280vw">
-                              <div class="card-info">
-                                  <div class="product-name">Dried purple sweet potato - 400gr</div>
-                                  <div class="rating">
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-regular fa-star-half-stroke"></i>
-                                      <i class="fa-regular fa-star"></i>
-                                  </div>
-                                  <div class="price">
-                                      <div class="price-after">$28000</div>
-                                      <div class="price-before">$35000</div>
-                                      <div class="price-discount">20% OFF</div>
-                                  </div>
-                                  <br>
-                              </div>
-                            </a>
-                            <div class="buy-action">
-                                <div class="quantity">
-                                    <input type="number" class="cart-quantity" min="1" value="1">
-                                </div>
-                                <div class="wishlist">
-                                    <a href="#!wishlist"><i class="fa-regular fa-heart"></i></a>
-                                </div>
-                                <div class="add-to-cart">
-                                    <button type="button" ng-click="addToCart(s)">Add to cart</button>
-                                </div>
-                            </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-3">
-                      <div class="card border-0 bg-light mb-2">
-                          <div class="card-body">
-                            <a href="#!nuts">
-                                <img src="../Image/quin.jpg" alt="seed1" width="100%" height="280vw">
-                              <div class="card-info">
-                                  <div class="product-name">Quinoa - 400gr</div>
-                                  <div class="rating">
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-regular fa-star-half-stroke"></i>
-                                      <i class="fa-regular fa-star"></i>
-                                  </div>
-                                  <div class="price">
-                                      <div class="price-after">$81000</div>
-                                      <div class="price-before">$90000</div>
-                                      <div class="price-discount">10% OFF</div>
-                                  </div>
-                                  <br>
-                              </div>
-                            </a>
-                            <div class="buy-action">
-                                <div class="quantity">
-                                    <input type="number" class="cart-quantity" min="1" value="1">
-                                </div>
-                                <div class="wishlist">
-                                    <a href="#!wishlist"><i class="fa-regular fa-heart"></i></a>
-                                </div>
-                                <div class="add-to-cart">
-                                    <button type="button" ng-click="addToCart(s)">Add to cart</button>
-                                </div>
-                            </div> 
-                          </div>
-                      </div>
-                  </div>
               </div>
             </div>
-            <div class="carousel-item">
-              <div class="row justify-content-center">
-                  <div class="col-lg-3">
-                      <div class="card border-0 bg-light mb-2">
-                          <div class="card-body">
-                              <a href="#!nuts">
-                                <img src="../Image/hatdieu.jpg" alt="seed1" width="100%" height="280vw">
-                              <div class="card-info">
-                                  <div class="product-name">Cashew - 400gr</div>
-                                  <div class="rating">
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-regular fa-star-half-stroke"></i>
-                                      <i class="fa-regular fa-star"></i>
-                                  </div>
-                                  <div class="price">
-                                      <div class="price-after">$118000</div>
-                                      <div class="price-before">$135000</div>
-                                      <div class="price-discount">20% OFF</div>
-                                  </div>
-                                  <br>
-                              </div>
-                              </a>
-                              <div class="buy-action">
-                                <div class="quantity">
-                                    <input type="number" class="cart-quantity" min="1" value="1">
-                                </div>
-                                <div class="wishlist">
-                                    <a href="#!wishlist"><i class="fa-regular fa-heart"></i></a>
-                                </div>
-                                <div class="add-to-cart">
-                                    <button type="button" ng-click="addToCart(s)">Add to cart</button>
-                                </div>
-                            </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-3">
-                      <div class="card border-0 bg-light mb-2">
-                          <div class="card-body">
-                            <a href="#!nuts">
-                                <img src="../Image/macca.jpg" alt="seed1" width="100%" height="280vw">
-                              <div class="card-info">
-                                  <div class="product-name">Macadamia nuts - 400gr</div>
-                                  <div class="rating">
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-regular fa-star-half-stroke"></i>
-                                      <i class="fa-regular fa-star"></i>
-                                  </div>
-                                  <div class="price">
-                                      <div class="price-after">$96000</div>
-                                      <div class="price-before">$120000</div>
-                                      <div class="price-discount">20% OFF</div>
-                                  </div>
-                                  <br>
-                              </div>
-                            </a>
-                            <div class="buy-action">
-                                <div class="quantity">
-                                    <input type="number" class="cart-quantity" min="1" value="1">
-                                </div>
-                                <div class="wishlist">
-                                    <a href="#!wishlist"><i class="fa-regular fa-heart"></i></a>
-                                </div>
-                                <div class="add-to-cart">
-                                    <button type="button" ng-click="addToCart(s)">Add to cart</button>
-                                </div>
-                            </div> 
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-3">
-                      <div class="card border-0 bg-light mb-2">
-                          <div class="card-body">
-                            <a href="">
-                                <img src="../Image/check.jpg" alt="seed1" width="100%" height="280vw">
-                              <div class="card-info">
-                                  <div class="product-name">Chestnut - 400gr</div>
-                                  <div class="rating">
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-regular fa-star-half-stroke"></i>
-                                      <i class="fa-regular fa-star"></i>
-                                  </div>
-                                  <div class="price">
-                                      <div class="price-after">$77500</div>
-                                      <div class="price-before">$85000</div>
-                                      <div class="price-discount">10% OFF</div>
-                                  </div>
-                                  <br>
-                              </div>
-                            </a>
-                            <div class="buy-action">
-                                <div class="quantity">
-                                    <input type="number" class="cart-quantity" min="1" value="1">
-                                </div>
-                                <div class="wishlist">
-                                    <a href="#!wishlist"><i class="fa-regular fa-heart"></i></a>
-                                </div>
-                                <div class="add-to-cart">
-                                    <button type="button" ng-click="addToCart(s)">Add to cart</button>
-                                </div>
-                            </div> 
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-3">
-                      <div class="card border-0 bg-light mb-2">
-                          <div class="card-body">
-                            <a href="#!nuts">
-                                <img src="../Image/pinenuts.jpg" alt="seed1" width="100%" height="280vw">
-                              <div class="card-info">
-                                  <div class="product-name">Pine nuts - 400gr</div>
-                                  <div class="rating">
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-regular fa-star-half-stroke"></i>
-                                      <i class="fa-regular fa-star"></i>
-                                  </div>
-                                  <div class="price">
-                                      <div class="price-after">$162000</div>
-                                      <div class="price-before">$180000</div>
-                                      <div class="price-discount">10% OFF</div>
-                                  </div>
-                                  <br>
-                              </div>
-                            </a>
-                            <div class="buy-action">
-                                <div class="quantity">
-                                    <input type="number" class="cart-quantity" min="1" value="1">
-                                </div>
-                                <div class="wishlist">
-                                    <a href="#!wishlist"><i class="fa-regular fa-heart"></i></a>
-                                </div>
-                                <div class="add-to-cart">
-                                    <button type="button" ng-click="addToCart(s)">Add to cart</button>
-                                </div>
-                            </div> 
-                          </div>
-                      </div>
-                  </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="row justify-content-center">
-                  <div class="col-lg-3">
-                      <div class="card border-0 bg-light mb-2">
-                          <div class="card-body">
-                              <img src="../Image/walnut.jpg" alt="seed1" width="100%" height="280vw">
-                              <div class="card-info">
-                                  <div class="product-name">Watermelon Seeds - 400gr</div>
-                                  <div class="rating">
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-regular fa-star-half-stroke"></i>
-                                      <i class="fa-regular fa-star"></i>
-                                  </div>
-                                  <div class="price">
-                                      <div class="price-after">$19.95</div>
-                                      <div class="price-before">$21.95</div>
-                                      <div class="price-discount">9% OFF</div>
-                                  </div>
-                                  <br>
-                                  <div class="buy-action">
-                                    <div class="quantity">
-                                        <input type="number" class="cart-quantity" min="1" value="1">
-                                    </div>
-                                    <div class="wishlist">
-                                        <a href="#!wishlist"><i class="fa-regular fa-heart"></i></a>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <button type="button" ng-click="addToCart(s)">Add to cart</button>
-                                    </div>
-                                </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-3">
-                      <div class="card border-0 bg-light mb-2">
-                          <div class="card-body">
-                              <img src="../Image/walnut.jpg" alt="seed1" width="100%" height="280vw">
-                              <div class="card-info">
-                                  <div class="product-name">Watermelon Seeds - 400gr</div>
-                                  <div class="rating">
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-regular fa-star-half-stroke"></i>
-                                      <i class="fa-regular fa-star"></i>
-                                  </div>
-                                  <div class="price">
-                                      <div class="price-after">$19.95</div>
-                                      <div class="price-before">$21.95</div>
-                                      <div class="price-discount">9% OFF</div>
-                                  </div>
-                                  <br>
-                                  <div class="buy-action">
-                                    <div class="quantity">
-                                        <input type="number" class="cart-quantity" min="1" value="1">
-                                    </div>
-                                    <div class="wishlist">
-                                        <a href="#!wishlist"><i class="fa-regular fa-heart"></i></a>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <button type="button" ng-click="addToCart(s)">Add to cart</button>
-                                    </div>
-                                </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-3">
-                      <div class="card border-0 bg-light mb-2">
-                          <div class="card-body">
-                              <img src="../Image/walnut.jpg" alt="seed1" width="100%" height="280vw">
-                              <div class="card-info">
-                                  <div class="product-name">Watermelon Seeds - 400gr</div>
-                                  <div class="rating">
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-regular fa-star-half-stroke"></i>
-                                      <i class="fa-regular fa-star"></i>
-                                  </div>
-                                  <div class="price">
-                                      <div class="price-after">$19.95</div>
-                                      <div class="price-before">$21.95</div>
-                                      <div class="price-discount">9% OFF</div>
-                                  </div>
-                                  <br>
-                                  <div class="buy-action">
-                                    <div class="quantity">
-                                        <input type="number" class="cart-quantity" min="1" value="1">
-                                    </div>
-                                    <div class="wishlist">
-                                        <a href="#!wishlist"><i class="fa-regular fa-heart"></i></a>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <button type="button" ng-click="addToCart(s)">Add to cart</button>
-                                    </div>
-                                </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-lg-3">
-                      <div class="card border-0 bg-light mb-2">
-                          <div class="card-body">
-                              <img src="../Image/walnut.jpg" alt="seed1" width="100%" height="280vw">
-                              <div class="card-info">
-                                  <div class="product-name">Watermelon Seeds - 400gr</div>
-                                  <div class="rating">
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-solid fa-star"></i>
-                                      <i class="fa-regular fa-star-half-stroke"></i>
-                                      <i class="fa-regular fa-star"></i>
-                                  </div>
-                                  <div class="price">
-                                      <div class="price-after">$19.95</div>
-                                      <div class="price-before">$21.95</div>
-                                      <div class="price-discount">9% OFF</div>
-                                  </div>
-                                  <br>
-                                  <div class="buy-action">
-                                    <div class="quantity">
-                                        <input type="number" class="cart-quantity" min="1" value="1">
-                                    </div>
-                                    <div class="wishlist">
-                                        <a href="#!wishlist"><i class="fa-regular fa-heart"></i></a>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <button type="button" ng-click="addToCart(s)">Add to cart</button>
-                                    </div>
-                                </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#card-slider" data-bs-slide="prev">
-              <span aria-hidden="true"><div class="btn-circle"><i class="fa-solid fa-chevron-left" id="btn-prev"></i></div></span>
-              <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#card-slider" data-bs-slide="next">
-              <span aria-hidden="true"><div class="btn-circle"><i class="fa-solid fa-chevron-right" id="btn-next"></i></div></span>
-              <span class="visually-hidden">Next</span>
-          </button>
         </div>
     </div>
 </section>
@@ -960,13 +144,13 @@
             <div class="col-sm-3">
                 <div class="category-wrapper" style="width: 18rem;">
                     <img src="Image/dryfruits.png" width="100%" alt="dryfruits">
-                    <a href="#" class="btn btn-primary">Dry Fruits</a>
+                    <a href="#!dryfruits" class="btn btn-primary" ng-click="scrollUp()">Dry Fruits</a>
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="category-wrapper" style="width: 18rem;">
                     <img src="Image/nuts.png" width="100%" alt="nuts">
-                    <a href="#" class="btn btn-primary">Nuts</a>
+                    <a href="#!nuts" class="btn btn-primary" ng-click="scrollUp()">Nuts</a>
                 </div>
             </div>
         </div>
@@ -974,13 +158,13 @@
             <div class="col-sm-3">
                 <div class="category-wrapper" style="width: 18rem;">
                     <img src="Image/seeds.png" width="100%" alt="seeds">
-                    <a href="#" class="btn btn-primary">Seeds</a>
+                    <a href="#!seeds" class="btn btn-primary" ng-click="scrollUp()">Seeds</a>
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="category-wrapper" style="width: 18rem;">
                     <img src="Image/combopacks.png" width="100%" alt="combopacks">
-                    <a href="#" class="btn btn-primary">Combo Packs</a>
+                    <a href="#!combopacks" class="btn btn-primary" ng-click="scrollUp()">Combo Packs</a>
                 </div>
             </div>
         </div>
