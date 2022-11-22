@@ -214,6 +214,9 @@ hr.product-title{
 a {
     text-decoration: none;
 }
+.card-body a {
+    text-decoration: none;
+}
 .rating{
     display: flex;
     justify-content: space-between;
@@ -375,6 +378,41 @@ button.inc{
     text-decoration: none;
     color: white;
 }
+
+/* *product dropdown */
+
+.nav-links .pro a:hover{
+    color: #A87CA9;
+}
+.pro {
+    position: relative;
+    display: inline-block;
+  }
+.drop-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+.drop-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.drop-content a:hover {background-color: #ddd;}
+
+.pro:hover .drop-content {
+    display: flex;
+}
+
+/* .drop:hover .dropdown-content {display: flex;} */
+
+.drop:hover .dropbtn {background-color: #3e8e41;}
+/* *end of product dropdown */
 
 /* *products page* */
 /* #filter{

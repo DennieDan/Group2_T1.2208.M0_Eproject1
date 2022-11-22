@@ -1,42 +1,76 @@
-<link rel="stylesheet" href="CSS/detail.css">
 <link rel="stylesheet" href="CSS/css_1.css">
-<div class="address-container">
-    <a href="#/"><i class="fa-solid fa-house"></i></a>
-    <div class="address">
-        <a href="#/"> Home </a>/
-        <a href="#!products"> Product </a>/
-        <a href="#!productdetail">Product detail</a>
+<link rel="stylesheet" href="CSS/detail.css">
+<link rel="stylesheet" href="CSS/products.css">
+<div class="container" ng-controller="detailController">
+    <div class="heading-section">
     </div>
-</div>
-<div ng-controller="detailController" ></div>
-<div class="detail">
-    <div class="nadetail">
-        <div class="bigimg">
-            <img src="Image/{{selectProduct.img}}" alt="">
+<div class="row">
+            <div class="image_cover col-lg-6 ">
+           
+                <div class="item main_image" style="background-image: url(Image/{{showImg}});">
+                
+                </div>
+                
+        
+            <div id="thumb" class="owl-carousel product-thumb slice_image">
+                <div class="item" >
+                    <img  ng-click="showImage($event)" title="{{selectProduct.img}}"  src="Image/{{selectProduct.img}}" />
+              </div>
+              <div class="item" >
+                    <img  ng-click="showImage($event)" title="{{selectProduct.img1}}" src="Image/{{selectProduct.img1}}" />
+              </div>
+              <div class="item" >
+                    <img  ng-click="showImage($event)" title="{{selectProduct.img2}}" src="Image/{{selectProduct.img2}}" />
+              </div>
+              <div class="item" >
+                    <img  ng-click="showImage($event)" title="{{selectProduct.img3}}" src="Image/{{selectProduct.img3}}" />
+              </div>
+              <div class="item" class>
+                    <img  ng-click="showImage($event)" title="{{selectProduct.img4}}" src="Image/{{selectProduct.img4}}" />
+              </div>
+                
+            </div>
         </div>
-        <div class="detail">
-            <table>
-                <tr>
-                    <div class="product-name">{{selectProduct.name}}</div>
-                </tr>
-                <tr>
-                    <div class="rating">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star-half-stroke"></i>
-                        <i class="fa-regular fa-star"></i>
-                    </div>
-                </tr>
-                <tr><br>
-                    <div class="price">
-                        <div class="price-after">{{selectProduct.price | vndFilter}}</div>
-                        <div class="price-before">$21.95</div>
-                        <div class="price-discount">9% OFF</div>
-                </tr><br>
-                <button class="add" ng-click="addToCart(selectProduct)">Add to cart</button>
-                <button class="buy">BUY NOW</button>
-            </table>
+      
+
+        
+        <div class="col-md-6">
+            <div class="detail">
+                <table>
+                    <tr>
+                        <div class="product-name">{{selectProduct.name}}</div>
+                    </tr>
+                    <tr>
+                        <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star-half-stroke"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                    </tr>
+                    <tr><br>
+                        <div class="price">
+                            <div class="price-after">{{selectProduct.price1}}</div>
+                            <div class="price-before">{{selectProduct.price}}</div>
+                            <div class="price-discount">{{selectProduct.sale}}</div>
+                    </tr><br>
+                    <tr>
+                        <div>Option:  <button type="button" class="btn">100gr</button> <button type="button" class="btn">200gr</button> <button type="button" class="btn">500gr</button></div>
+                    </tr><br>
+                    <div class="product-count">
+                        <label for="size">Quantity:<!--<form action="#" class="display-flex">-->
+                             <input class="quantity" id="id_form-0-quantity" min="0" name="form-0-quantity" value="1" type="number" color="blue">
+                    <!--</form-->
+                        </label>
+                        <br><br>
+                        <!-- <a href="#" class="round-black-btn">Add to Cart</a>
+                        <a href="#" class="round-pink-btn">Buy now</a> -->
+                    </div><br>
+                    <button class="add">Add to cart</button>
+                    <button class="buy">BUY NOW</button>
+                </table>
+            </div>
         </div>
     </div>
     <div class="nudetail">
@@ -86,11 +120,20 @@
                     <td>
                         <span style="color: red;">*</span>Rating
                         <div class="rating2 border-0 bg-light mb-2">
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
+                            
+								<form action="">
+								  <input class="star star-5" id="star-5" type="radio" name="star"/>
+								  <label class="star star-5" for="star-5"></label>
+								  <input class="star star-4" id="star-4" type="radio" name="star"/>
+								  <label class="star star-4" for="star-4"></label>
+								  <input class="star star-3" id="star-3" type="radio" name="star"/>
+								  <label class="star star-3" for="star-3"></label>
+								  <input class="star star-2" id="star-2" type="radio" name="star"/>
+								  <label class="star star-2" for="star-2"></label>
+								  <input class="star star-1" id="star-1" type="radio" name="star"/>
+								  <label class="star star-1" for="star-1"></label>
+								</form>
+							
                         </div>
                     </td>
                 </tr>
@@ -103,11 +146,4 @@
             
         </div>
 </div>
-
-
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
-<script src="/sourecode/JS/script.js"></script>
-
-
+</div>

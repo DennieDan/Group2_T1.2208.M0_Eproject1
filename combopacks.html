@@ -1,0 +1,154 @@
+<link rel="stylesheet" href="CSS/products.css">
+<link rel="stylesheet" href="CSS/css_1.css">
+
+<div class="address-container">
+    <a href="#/"><i class="fa-solid fa-house"></i></a>
+    <div class="address">
+        <a href="#/"> Home </a>/
+        <a href="#!products"> Product </a>
+    </div>
+</div>
+<section class="product-list">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-sm-3">
+                <div id="filter">
+                    <div class="category-head">
+                        <div class="category-title">Categories</div>
+                    </div>
+                    <div class="filter-menu">
+                        <div class="link">
+                            <!-- <ul class="link-list">
+                                <li><a href="#" class="active">Dry Fruits</a></li>
+                                <li><a href="#">Nuts</a></li>
+                                <li><a href="#">Seeds</a></li>
+                                <li><a href="#">Combo Packs</a></li>
+                            </ul> -->
+                            <div class="link-list">
+                                <a href="#!dryfruits" >Dry Fruits</a><br>
+                                <a href="#!nuts" >Nuts</a><br>
+                                <a href="#!seeds" >Seeds</a><br>
+                                <a href="#!products" class="active" >Combo Packs</a>
+                                <!-- <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="dried fruits" class="chk-cake" name="cat">
+                                        Dry Fruit
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="nuts" class="chk-cake" name="cat">
+                                        Nuts
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="rose" class="chk-cake" name="cat">
+                                        Seeds
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="sun" class="chk-cake" name="cat">
+                                        Combo Packs
+                                    </label>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="filter-price">
+                            <div class="filter-title">Price<hr></div>
+                            <div class="filter-checkbox">
+                                <input type="checkbox" value="0-20" class="chk-cake" name="cat"> $0 - 20 <br>
+                                <input type="checkbox" value="0-20"> $0 - 20 <br>
+                                <input type="checkbox" value="0-20"> $0 - 20
+                            </div>
+                        </div>
+                        <div class="filter-item">
+                            <div class="filter-title">Weight<hr></div>
+                            <div class="filter-checkbox">
+                                <input type="checkbox" value="100" class="chk-cake" name="cat"> 100gr <br>
+                                <input type="checkbox" value="250"> 250gr <br>
+                                <input type="checkbox" value="500"> 500gr
+                            </div>
+                        </div>
+                        <div class="filter-item">
+                            <div class="filter-title">Discounts<hr></div>
+                            <div class="filter-checkbox">
+                                <input type="checkbox" value="yes" class="chk-cake" name="cat"> With Offers <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+        <div class="col-sm-9">
+            <div class="row">
+                <div class="col-sm-2">
+                    <h3 class="category-name">Combo Packs</h3>
+                </div>
+                <div class="col-sm-7"></div>
+                <div class="col-sm-3">
+                    <div class="sort-container">
+                        <div style="width: 110%;">Sort By</div>
+                        <div>
+                            <select name="" id="">
+                                <option value="Bestseller">Bestseller</option>
+                                <option value="Discount">Discount</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-5 pb-2">
+                
+                <!-- <td>{{$index +1}}</td>
+                <td>{{s.name}}</td>
+                <td><img src="../Image/{{s.img}}" alt="">
+                <td>{{s.price}}</td> -->
+                <div class="col-sm-4 " 
+                ng-repeat=" s in clist "
+                ng-click="clickProduct(s)"
+              >
+              <a href="#!productdetail">
+                <div class="card border-0 bg-light mb-2">
+                    <div class="card-body">
+                        <img src="Image/{{s.img}}" alt="" width="100%" height="280vw">
+                        <div class="card-info">
+                            <div class="product-name">{{s.name}}</div>
+                            <div class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star-half-stroke"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <div class="price">
+                                <div class="price-after">{{s.price}}</div>
+                                <div class="price-before">{{s.price1}}</div>
+                                <div class="price-discount">{{s.sale}} OFF</div>
+                            </div>
+                            <br>
+                            
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <div class="buy-action">
+                <div class="quantity">
+                    <input type="number" ng-model="s.qty" class="cart-quantity" min="1" value="1">
+                </div>
+                <div class="wishlist">
+                    <a href="#!wishlist"><i class="fa-regular fa-heart"></i></a>
+                </div>
+                <div class="add-to-cart">
+                    <button type="button" ng-click="addToCart(s)">Add to cart</button>
+                </div>
+            </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>

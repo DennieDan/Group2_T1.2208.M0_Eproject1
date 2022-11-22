@@ -11,6 +11,22 @@ var app = angular.module("myProject", ["ngRoute"]);
                 templateUrl: "products.html",
                 controller: "productController"
             })
+            .when("/dryfruits",{
+                templateUrl: "dryfruits.html",
+                controller:"dryController"
+            })
+            .when("/nuts",{
+                templateUrl: "nuts.html",
+                controller:"nutsController" 
+            })
+            .when("/seeds",{
+                templateUrl: "seeds.html",
+                controller:"seedsController"
+            })
+            .when("/combopacks",{
+                templateUrl: "combopacks.html",
+                controller:"comboController"  
+            })
             .when("/productdetail",{
                 templateUrl: "productdetail.html",
                 controller: "detailController"
@@ -26,7 +42,8 @@ var app = angular.module("myProject", ["ngRoute"]);
                 templateUrl: "contact.html"
             })
             .when("/wishlist",{
-                templateUrl: "wishlist.html"
+                templateUrl: "wishlist.html",
+                controller: "wishlistController"
             })
             .when("/cart",{
                 templateUrl: "cart.html",
@@ -211,6 +228,26 @@ var app = angular.module("myProject", ["ngRoute"]);
             {
                 $rootScope.cities = rsp.data.cityList;
             })
+            $http.get("./JSON/topsale.json").then(function(response)
+            {
+                $rootScope.slist = response.data.productList2;   
+            })
+            $http.get("./JSON/dryfruits.json").then(function(response)
+            {
+                $rootScope.dlist = response.data.dryfruitList;   
+            })
+            $http.get("./JSON/nuts.json").then(function(response)
+            {
+                $rootScope.nlist = response.data.nutList;
+            })
+            $http.get("./JSON/seeds.json").then(function(response)
+            {
+                $rootScope.elist = response.data.seeds;
+            })
+            $http.get("./JSON/combopacks.json").then(function(response)
+            {
+                $rootScope.clist = response.data.combopacks;
+            })
         });
 
         app.service("stateService", function()
@@ -243,9 +280,39 @@ var app = angular.module("myProject", ["ngRoute"]);
 
         })
 
-        app.controller("detailController",function($scope,$http)
+        app.controller("dryController", function($rootScope,$scope)
+        {
+            $scope.clickProduct=function(event){
+                $rootScope.selectProduct=event
+            }
+        })
+        app.controller("nutsController", function($rootScope,$scope)
+        {
+            $scope.clickProduct=function(event){
+                $rootScope.selectProduct=event
+            }
+        })
+        app.controller("seedsController", function($rootScope,$scope)
+        {
+            $scope.clickProduct=function(event){
+                $rootScope.selectProduct=event
+            }
+        })
+        app.controller("comboController", function($rootScope,$scope)
+        {
+            $scope.clickProduct=function(event){
+                $rootScope.selectProduct=event
+            }
+        })
+
+        app.controller("detailController",function($scope,$http,$rootScope)
         {
             
+            $scope.showImage=function(event){
+
+           $scope.showImg=event.target.title
+       
+            }
             $scope.myShow=true;
             $scope.myNu=true;
             $scope.myreview=true;
@@ -298,6 +365,11 @@ var app = angular.module("myProject", ["ngRoute"]);
                 }
                 
             }
+        })
+
+        app.controller("wishlistController", function($scope,$rootScope)
+        {
+
         })
 
         app.controller("cartController", function($scope, $rootScope, $location, stateService)
