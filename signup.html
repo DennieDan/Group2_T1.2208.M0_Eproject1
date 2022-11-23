@@ -15,7 +15,7 @@
 <div class="img-si">
     <img src="Image/icongrape.png" alt="logo" class="img-sign">
 </div>
-<form class="sign-in">
+<form class="sign-in" name="myForm">
     <div>
         <h3>
             SIGN UP
@@ -37,8 +37,9 @@
                 <!-- Email input -->
     <div class="form-outline mb-4">
         <div class="form-label"><label for="email" >Email Address</label></div>
-        <input type="email" id="email" name="myEmail" ng-model="myEmail" required class="form-control"/><br>
-        <span style="color: red;" class="error" ng-show="myForm.myEmail.$error.required && myForm.myEmail.$dirty">email is required</span>
+        <input type="email" id="email" name="myEmail" ng-model="myEmail" pattern=".+@.+\.\w{2,3}" required class="form-control"/><br>
+        <span style="color: red;" class="error" ng-show="myForm.myEmail.$error.required && myForm.myEmail.$dirty">Email is required</span>
+        <span style="color: red;" class="error" ng-show="myForm.myEmail.$error.pattern && myForm.myEmail.$dirty">Invalid email</span>
     </div>
             </td>
         </tr>
@@ -47,9 +48,9 @@
                 <!-- Password input -->
     <div class="form-outline mb-4">
         <div class="form-label"><label for="password" >Password</label></div>
-        <input type="password" id="password" name="myPass" ng-model="myPass" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w]).{8,}$" required class="form-control"/>
+        <input type="password" id="password" name="myPass" ng-model="myPass" pattern="^(?=.*[a-z])(?=.*\d).{8,}$" required class="form-control"/>
         <span style="color: red;" class="error" ng-show="myForm.myPass.$error.required && myForm.myPass.$dirty">Password is required</span>
-        <span  style="color: red;" class="error" ng-show="myForm.myPass.$error.pattern && myForm.myPass.$dirty">wrong format</span>
+        <span  style="color: red;" class="error" ng-show="myForm.myPass.$error.pattern && myForm.myPass.$dirty">Wrong format</span>
     </div>
             </td>
         </tr>
@@ -86,31 +87,9 @@
     <!-- Submit button -->
         <button type="submit" ng-click="btn3()" class="btn2 btn-primary btn-block mb-4">Sign Up</button>
     <!-- 2 column grid layout for inline styling -->
-    <div class="row mb-4">
-        <!-- <div class="col d-flex justify-content-center">
-             Checkbox 
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-                <label class="form-check-label" for="form2Example31"> Remember me </label>
-            </div>
-        </div> -->
-  </div>
+    
 
-  <!-- bonus -->
-  <!-- <div class="text-center">
-        <p>or sign up with:</p>
-    <button type="button" class="btn btn-link btn-floating mx-1">
-        <i class="fab fa-facebook-f"></i>
-    </button>
-
-    <button type="button" class="btn btn-link btn-floating mx-1">
-        <i class="fab fa-google"></i>
-    </button>
-
-    <button type="button" class="btn btn-link btn-floating mx-1">
-        <i class="fab fa-twitter"></i>
-    </button>
-  </div> -->
+  
 </form>
 
 <script src="/sourecode/JS/script.js"></script>
