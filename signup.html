@@ -27,8 +27,8 @@
                 <!-- Name Input -->
     <div class="form-outline mb-4">
         <div class="form-label"><label for="name" >Name</label></div>
-        <input type="text" id="name" required class="form-control"/><br>
-        <span style="color: red;">Name is required</span>
+        <input type="text" id="name" name="myName" ng-model="myName" required class="form-control"/><br>
+        <span style="color: red;" class="error" ng-show="myForm.myName.$error.required && myForm.myName.$dirty">Name is required</span>
     </div>
             </td>
         </tr>
@@ -37,8 +37,8 @@
                 <!-- Email input -->
     <div class="form-outline mb-4">
         <div class="form-label"><label for="email" >Email Address</label></div>
-        <input type="email" id="email" required class="form-control"/><br>
-        <span style="color: red;">Email is required</span>
+        <input type="email" id="email" name="myEmail" ng-model="myEmail" required class="form-control"/><br>
+        <span style="color: red;" class="error" ng-show="myForm.myEmail.$error.required && myForm.myEmail.$dirty">email is required</span>
     </div>
             </td>
         </tr>
@@ -47,7 +47,9 @@
                 <!-- Password input -->
     <div class="form-outline mb-4">
         <div class="form-label"><label for="password" >Password</label></div>
-        <input type="password" id="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w]).{8,}$" required class="form-control"/>
+        <input type="password" id="password" name="myPass" ng-model="myPass" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w]).{8,}$" required class="form-control"/>
+        <span style="color: red;" class="error" ng-show="myForm.myPass.$error.required && myForm.myPass.$dirty">Password is required</span>
+        <span  style="color: red;" class="error" ng-show="myForm.myPass.$error.pattern && myForm.myPass.$dirty">wrong format</span>
     </div>
             </td>
         </tr>
@@ -56,7 +58,8 @@
                 <!-- confirm pass -->
     <div class="form-outline mb-4">
         <div class="form-label"><label for="conpassword" >Confirm Password</label></div>
-        <input type="password" id="conpassword" required class="form-control"/>
+        <input type="password" id="conpassword" name="mysPass" ng-model="mysPass" required class="form-control"/>
+        <span style="color: red;" class="error" ng-show="myForm.mysPass.$error.required && myForm.mysPass.$dirty">Password is required</span>
     </div>
             </td>
         </tr>
